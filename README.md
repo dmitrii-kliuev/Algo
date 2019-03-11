@@ -1,2 +1,2 @@
 # algo
-Algorithms and problem solving with algorithms
+Algorithms and problem solving with algorithms 
