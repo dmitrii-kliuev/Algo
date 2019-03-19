@@ -46,15 +46,15 @@ namespace leetcode.Tests.Algo
                 if (n == 0) return 0;
                 if (n == 1 || n == 2) return 1;
 
-                var f = new int[n];
-                f[0] = 1;
+                var f = new int[n + 1];
                 f[1] = 1;
-                for (int i = 2; i < n; i++)
+                f[2] = 1;
+                for (int i = 3; i <= n; i++)
                 {
                     f[i] = f[i - 2] + f[i - 1];
                 }
 
-                return f[n - 1];
+                return f[n];
             }
         }
     }
