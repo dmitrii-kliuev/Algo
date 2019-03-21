@@ -34,6 +34,7 @@ namespace leetcode.Tests.leetcode
         [Theory]
         [InlineData(new[] { 1, 2, 5 }, 5, 4)]
         [InlineData(new[] { 1, 2, 3 }, 4, 4)]   // 1111, 22, 112, 13
+        [InlineData(new[] { 1, 2, 5 }, 100, 541)]
         public void Test(int[] coins, int amount, int expected)
         {
             var s = new Solution();

@@ -130,6 +130,7 @@ namespace BinaryTree
 
             public void PreOrderTraversal()
             {
+                Console.WriteLine("PreOrderTraversal");
                 PreOrderTraversal(_root);
             }
 
@@ -147,6 +148,7 @@ namespace BinaryTree
 
             public void InOrderTraversal()
             {
+                Console.WriteLine("InOrderTraversal");
                 InOrderTraversal(_root);
             }
 
@@ -163,6 +165,7 @@ namespace BinaryTree
 
             public void PostOrderTraversal()
             {
+                Console.WriteLine("PostOrderTraversal");
                 PostOrderTraversal(_root);
             }
 
