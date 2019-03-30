@@ -5,29 +5,7 @@ using Xunit;
 
 namespace leetcode.Tests.leetcode
 {
-    /*You are given coins of different denominations and a total amount of money.
-     Write a function to compute the number of combinations that make up that amount.
-     You may assume that you have infinite number of each kind of coin.
-    
-        Example 1:
-
-        Input: amount = 5, coins = [1, 2, 5]
-        Output: 4
-        Explanation: there are four ways to make up the amount:
-        5=5
-        5=2+2+1
-        5=2+1+1+1
-        5=1+1+1+1+1
-        Example 2:
-
-        Input: amount = 3, coins = [2]
-        Output: 0
-        Explanation: the amount of 3 cannot be made up just with coins of 2.
-        Example 3:
-
-        Input: amount = 10, coins = [10] 
-        Output: 1
-     */
+    // Good article https://www.geeksforgeeks.org/understanding-the-coin-change-problem-with-dynamic-programming/
 
     public class CoinChangeTests
     {
@@ -35,6 +13,8 @@ namespace leetcode.Tests.leetcode
         [InlineData(new[] { 1, 2, 5 }, 5, 4)]
         [InlineData(new[] { 1, 2, 3 }, 4, 4)]   // 1111, 22, 112, 13
         [InlineData(new[] { 1, 2, 5 }, 100, 541)]
+        [InlineData(new[] { 1, 5, 10 }, 8, 2)]
+        [InlineData(new[] { 1, 5, 10 }, 12, 4)]
         public void Test(int[] coins, int amount, int expected)
         {
             var s = new Solution();
@@ -46,16 +26,22 @@ namespace leetcode.Tests.leetcode
         {
             public int change(int amount, int[] coins)
             {
-                int[] dp = new int[amount + 1];
-                dp[0] = 1;
-                foreach (int coin in coins)
+                var ways = new int[amount + 1];
+                ways[0] = 1;
+
+                foreach (var coin in coins)
                 {
-                    for (int i = coin; i <= amount; i++)
+                    for (int j = 0; j < ways.Length; j++)
                     {
-                        dp[i] += dp[i - coin];
+                        if(j >= coin)
+                        {
+                            ways[j] = ways[j - coin] + ways[j];
+                        }
                     }
                 }
-                return dp[amount];
+
+
+                return ways[amount];
             }
         }
     }
