@@ -26,15 +26,16 @@ namespace leetcode.Tests.leetcode
         {
             public int ClimbStairs(int n)
             {
-                var res = 0;
-                var prev = 0;
-                for (int i = 0; i < n; i++)
+                var dp = new int[n + 1];
+
+                dp[0] = dp[1] = 1;
+
+                for (int i = 2; i < dp.Length; i++)
                 {
-                    res = i + prev;
-                    prev = i;
+                    dp[i] = dp[i - 1] + dp[i - 2];
                 }
                 
-                return res;
+                return dp[n];
             }
         }
     }
