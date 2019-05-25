@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using Xunit;
 
@@ -129,13 +130,13 @@ namespace leetcode.Tests.leetcode.TreeProblems
 
             public void PreOrderTraversal()
             {
-                Console.WriteLine("PreOrderTraversal");
+                Debug.WriteLine("PreOrderTraversal");
                 PreOrderTraversal(_root);
             }
 
             public void PreOrderTraversal(BinaryTreeNode<T> node)
             {
-                Console.WriteLine(node.Value);
+                Debug.WriteLine(node.Value);
 
                 if (node.Left != null)
                     PreOrderTraversal(node.Left);
@@ -147,7 +148,7 @@ namespace leetcode.Tests.leetcode.TreeProblems
 
             public void InOrderTraversal()
             {
-                Console.WriteLine("InOrderTraversal");
+                Debug.WriteLine("InOrderTraversal");
                 InOrderTraversal(_root);
             }
 
@@ -156,7 +157,7 @@ namespace leetcode.Tests.leetcode.TreeProblems
                 if (node.Left != null)
                     InOrderTraversal(node.Left);
 
-                Console.WriteLine(node.Value);
+                Debug.WriteLine(node.Value);
 
                 if (node.Right != null)
                     InOrderTraversal(node.Right);
@@ -164,7 +165,7 @@ namespace leetcode.Tests.leetcode.TreeProblems
 
             public void PostOrderTraversal()
             {
-                Console.WriteLine("PostOrderTraversal");
+                Debug.WriteLine("PostOrderTraversal");
                 PostOrderTraversal(_root);
             }
 
@@ -176,7 +177,7 @@ namespace leetcode.Tests.leetcode.TreeProblems
                 if (node.Right != null)
                     PostOrderTraversal(node.Right);
 
-                Console.WriteLine(node.Value);
+                Debug.WriteLine(node.Value);
             }
 
             public BinaryTreeNode<T> FindWithParent(T value, out BinaryTreeNode<T> parent)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace leetcode.Tests.leetcode.TreeProblems
@@ -19,7 +20,7 @@ namespace leetcode.Tests.leetcode.TreeProblems
 
     public class BinaryTreeInt
     {
-        TreeNode _root;
+        public TreeNode _root;
 
         public void Add(int value)
         {
@@ -30,6 +31,14 @@ namespace leetcode.Tests.leetcode.TreeProblems
             else
             {
                 AddTo(_root, value);
+            }
+        }
+
+        internal void AddRange(int[] arr)
+        {
+            foreach (var item in arr)
+            {
+                Add(item);
             }
         }
 
@@ -59,6 +68,41 @@ namespace leetcode.Tests.leetcode.TreeProblems
                 }
 
             }
+        }
+
+        public void InOrderTraversal(TreeNode node)
+        {
+            if (node.left != null)
+                InOrderTraversal(node.left);
+
+            Debug.WriteLine(node.val);
+
+            if (node.right != null)
+                InOrderTraversal(node.right);
+        }
+
+        public TreeNode FindNode(int value)
+        {
+            var current = _root;
+
+            while (current != null)
+            {
+                var result = value.CompareTo(current.val);
+                if (result > 0)
+                {
+                    current = current.right;
+                }
+                else if (result < 0)
+                {
+                    current = current.left;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            return current;
         }
     }
 }

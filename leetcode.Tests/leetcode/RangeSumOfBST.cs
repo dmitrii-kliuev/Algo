@@ -1,6 +1,9 @@
-﻿using System;
+﻿using leetcode.Tests.leetcode.TreeProblems;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
+using Xunit;
 
 namespace leetcode.Tests.leetcode
 {
@@ -35,8 +38,47 @@ namespace leetcode.Tests.leetcode
 
         The number of nodes in the tree is at most 10000.
         The final answer is guaranteed to be less than 2^31.*/
+
     public class RangeSumOfBST
     {
+        [Theory]
+        [InlineData(new int[] { 10, 5, 15, 3, 7, 18 }, 7, 15, 32)]
+        [InlineData(new int[] { 10, 5, 15, 3, 7, 13, 18, 1, 6 }, 6, 10, 23)]
+        public void Test(int[] arr, int L, int R, int expected)
+        {
+            var bt = new BinaryTreeInt();
+            bt.AddRange(arr);
+            bt.InOrderTraversal(bt._root);
+
+            var s = new Solution();
+            var actual = s.RangeSumBST(bt._root, L, R);
+            Assert.Equal(expected, actual);
+        }
+
+        public class Solution
+        {
+            public int RangeSumBST(TreeNode root, int L, int R)
+            {
+                var res = Sum(root, 0, L, R);
+
+                return res;
+            }
+
+            public int Sum(TreeNode node, int s, int L, int R)
+            {
+                if (node.left != null)
+                   s = Sum(node.left, s, L, R);
+
+                if (node.val >= L && node.val <= R)
+                    s += node.val;
+
+                if (node.right != null)
+                    s = Sum(node.right, s, L, R);
+
+                return s;
+            }
+
+        }
 
         /**
          * Definition for a binary tree node.
@@ -47,12 +89,5 @@ namespace leetcode.Tests.leetcode
          *     public TreeNode(int x) { val = x; }
          * }
          */
-        public class Solution
-        {
-            //public int RangeSumBST(TreeNode root, int L, int R)
-            //{
-
-            //}
-        }
     }
 }
