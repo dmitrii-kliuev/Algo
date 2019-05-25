@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BinaryTree
+namespace leetcode.Tests.leetcode.TreeProblems
 {
     public class BinaryTreeNode<T> : IComparable<T> where T : IComparable<T>
     {

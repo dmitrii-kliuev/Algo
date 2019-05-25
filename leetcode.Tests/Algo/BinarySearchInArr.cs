@@ -64,8 +64,6 @@ namespace leetcode.Tests
 
                     if (low > high) return null;
                 }
-
-                return null;
             }
         }
     }

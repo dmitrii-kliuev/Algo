@@ -14,7 +14,7 @@ namespace leetcode.Tests.Algo
             FizzBuzz(15);
         }
 
-        public void FizzBuzz(int n)
+        private void FizzBuzz(int n)
         {
             for (int i = 1; i <= n; i++)
             {

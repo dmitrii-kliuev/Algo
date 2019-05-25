@@ -23,6 +23,7 @@ namespace BubbleSort
         
         public class BubbleSort
         {
+
             public void SortIncrease(int[] arr)
             {
                 Display(arr);

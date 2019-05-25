@@ -12,7 +12,7 @@ namespace leetcode.Tests.Algo.DynamicProgramming
         public void Test(int stairs, int jumpLenght, int expected)
         {
             var s = new Solution();
-            var actual = s.RabbitMoves(7, 2); // 7 - количество ступенек, 2 - максимальный прыжок
+            var actual = s.RabbitMoves(stairs, jumpLenght); // 7 - количество ступенек, 2 - максимальный прыжок
             Assert.Equal(expected, actual);
         }
 

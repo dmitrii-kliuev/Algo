@@ -18,7 +18,6 @@ namespace leetcode.Tests.leetcode
         [InlineData("1111", "1111", "11110")]
         public void Test(string a, string b, string expected)
         {
-            int sum = (0 ^ 0 ^ 1);
             var aBit = 1;
             var bBit = 1;
 

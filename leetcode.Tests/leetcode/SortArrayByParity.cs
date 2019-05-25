@@ -8,13 +8,41 @@ namespace leetcode.Tests.leetcode
     public class SortArrayByParity
     {
         [Theory]
-        [InlineData(new[] { 3, 1, 2, 4 }, new[] { 2, 4, 3, 1 })]
-        [InlineData(new[] { 0, 1 }, new[] { 0, 1 })]
-        public void Test(int[] arr, int[] expected)
+        [InlineData(new[] { 3, 1, 2, 4 })]
+        [InlineData(new[] { 0, 1 })]
+        [InlineData(new[] { 1, 2, 3, 4, 5, 6, 7, 8 })]
+        [InlineData(new[] { 1, 1, 1 })]
+        [InlineData(new[] { 2, 2, 2 })]
+        public void Test(int[] arr)
         {
             var s = new Solution();
             var actual = s.SortArrayByParity(arr);
-            Assert.Equal(expected, actual);
+
+            var check = Check(actual);
+            Assert.True(check);
+        }
+
+        private bool Check(int[] arr)
+        {
+            var isChecked = true;
+            var evenPart = true;
+            var oddPart = false;
+            foreach (var a in arr)
+            {
+                if (!(evenPart && a % 2 == 0))
+                {
+                    evenPart = false;
+                    oddPart = true;
+                };
+
+                if (oddPart && a % 2 == 0)
+                {
+                    isChecked = false;
+                    break;
+                }
+            }
+
+            return isChecked;
         }
 
         public class Solution

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using leetcode.Tests.leetcode.TreeProblems;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection.Metadata;
@@ -14,7 +15,6 @@ namespace leetcode.Tests.leetcode
         public void Test()
         {
             var arr = new int?[] { 1, 1, 1, 1, 1, null, 1 };
-            var expected = true;
 
             var root = new TreeNode(1);
             root.left = new TreeNode(1);

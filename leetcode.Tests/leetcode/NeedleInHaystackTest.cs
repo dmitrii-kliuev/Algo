@@ -10,7 +10,8 @@ namespace leetcode.Tests.leetcode
         [Theory]
         [InlineData("hello", "ll", 2)]
         [InlineData("heol", "ll", -1)]
-        [InlineData("", "ll", 0)]
+        [InlineData("", "ll", -1)]
+        [InlineData("aaaaa", "bba", -1)]
         public void NeedleInHaystack(string haystack, string needle, int expected)
         {
             var s = new Solution();

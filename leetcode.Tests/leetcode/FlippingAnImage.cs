@@ -85,7 +85,7 @@ namespace leetcode.Tests.leetcode
             }
         }
 
-        public void ArrayReverse(int[] arr)
+        private void ArrayReverse(int[] arr)
         {
             var left = 0;
             var right = arr.Length - 1;

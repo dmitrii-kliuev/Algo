@@ -11,7 +11,11 @@ namespace QuickSort
         static void Main(string[] args)
         {
             int[] array = { 3, 7, 4, 4, 6, 5, 8, 12, 19, 2, 0 };
+            Console.WriteLine(string.Join(", ", array));
             QuickSort(array);
+            Console.WriteLine(string.Join(", ", array));
+            
+            Console.ReadKey();
         }
 
         public static void QuickSort(int[] arr)
