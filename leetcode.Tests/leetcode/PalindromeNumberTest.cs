@@ -12,6 +12,8 @@ namespace leetcode.Tests.leetcode
         [InlineData(121, true)]
         [InlineData(123, false)]
         [InlineData(-101, false)]
+        [InlineData(1221, true)]
+        [InlineData(22122, true)]
         public void Test(int num, bool expected)
         {
             var s = new Solution();
@@ -34,25 +36,14 @@ namespace leetcode.Tests.leetcode
             {
                 var res = 0;
 
-                try
+                while (true)
                 {
-                    checked
-                    {
-                        while (true)
-                        {
-                            res += (x % 10);
+                    res += (x % 10);
 
-                            x /= 10;
-                            if (x == 0) break;
+                    x /= 10;
+                    if (x == 0) break;
 
-                            res *= 10;
-                        }
-                    }
-                }
-                catch (OverflowException e)
-                {
-                    Debug.WriteLine(e);
-                    return 0;
+                    res *= 10;
                 }
 
                 return res;
