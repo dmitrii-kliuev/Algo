@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 using Xunit;
 
 namespace leetcode.Tests.leetcode.TreeProblems
@@ -20,8 +18,6 @@ namespace leetcode.Tests.leetcode.TreeProblems
             NewMethod3();
 
             NewMethod4();
-
-            Console.ReadKey();
         }
 
         private static void NewMethod4()
