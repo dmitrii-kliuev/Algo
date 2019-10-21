@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>New Test</Title>
+      <Author>Dmitrii Kliuev</Author>
+      <Description>Create test template with solution template</Description>
+      <Shortcut>tn</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp">
+        <![CDATA[public class $ClassName$
+            {
+                [Theory]
+                [InlineData("", true)]
+                public void Test(string str, bool expected)
+                {
+                    var actual = Solution.Start(str);
+                    Assert.Equal(expected, actual);
+                }
+
+                public static class Solution
+                {
+                    public static bool Start(string str)
+                    {
+                        return false;
+                    }
+                }
+            }]]>
+      </Code>
+      <Declarations>
+        <Literal>
+          <ID>ClassName</ID>
+          <ToolTip>Choose name of new test class</ToolTip>
+          <Default>NewTestClass</Default>
+        </Literal>
+      </Declarations>
+      <Imports>
+        <Import>
+          <Namespace>Xunit</Namespace>
+        </Import>
+      </Imports>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
