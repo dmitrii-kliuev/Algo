@@ -18,7 +18,7 @@ namespace leetcode.Tests
             FOLLOW UP
             Suppose the digits are stored in forward order. Repeat the above problem.
             EXAMPLE
-            Input: (6 -> 1 -> 7) + (2 -> 9 ->) 5) . Thatis,617 + 295.
+            Input: (6 -> 1 -> 7) + (2 -> 9 ->) 5). Thatis, 617 + 295.
             Output: 9 -> 1 -> 2. That is, 912
         */
 
@@ -26,6 +26,7 @@ namespace leetcode.Tests
         [InlineData(new[] { 7, 1, 6 }, new[] { 5, 9, 2 }, new[] { 2, 1, 9 })]
         [InlineData(new[] { 7, 1, 6 }, new[] { 5, 9 }, new[] { 2, 1, 7 })]
         [InlineData(new[] { 5, 8 }, new[] { 2, 4, 5 }, new[] { 7, 2, 6 })]
+        [InlineData(new[] { 9, 7, 8 }, new[] { 6, 8, 5 }, new[] { 5, 6, 4, 1 })]
         public void TestReversOrder(int[] firstArr, int[] secondArr, int[] expected)
         {
             var first = ListNode.FillList(firstArr);
@@ -35,7 +36,7 @@ namespace leetcode.Tests
             Assert.Equal(expected, actual);
         }
 
-        static class SolutionReversOrder
+        private static class SolutionReversOrder
         {
             public static int[] Start(ListNode first, ListNode second)
             {
@@ -60,6 +61,9 @@ namespace leetcode.Tests
                     if (second != null) second = second.next;
                 }
 
+                if (carryOver != 0)
+                    current.next = new ListNode(1);
+
                 return ListNode.LinkedListToList(resultRoot).ToArray();
             }
 
@@ -83,15 +87,16 @@ namespace leetcode.Tests
 
                 return val;
 
+#pragma warning disable CA1303 // Do not pass literals as localized parameters
                 throw new Exception("first & second is null");
+#pragma warning restore CA1303 // Do not pass literals as localized parameters
             }
         }
 
 
         [Theory]
-        [InlineData(new[] { 7, 1, 6 }, new[] { 5, 9, 2 }, new[] { 2, 1, 9 })]
-        [InlineData(new[] { 7, 1, 6 }, new[] { 5, 9 }, new[] { 2, 1, 7 })]
-        [InlineData(new[] { 5, 8 }, new[] { 2, 4, 5 }, new[] { 7, 2, 6 })]
+        [InlineData(new[] { 6, 1, 7 }, new[] { 2, 9, 5 }, new[] { 9, 1, 2 })]
+        [InlineData(new[] { 6, 1, 7, 8 }, new[] { 2, 9 }, new[] { 6, 2, 0, 7 })]
         public void TestForwardOrder(int[] firstArr, int[] secondArr, int[] expected)
         {
             var first = ListNode.FillList(firstArr);
@@ -101,7 +106,7 @@ namespace leetcode.Tests
             Assert.Equal(expected, actual);
         }
 
-        static class SolutionForwardOrder
+        private static class SolutionForwardOrder
         {
             public static int[] Start(ListNode first, ListNode second)
             {

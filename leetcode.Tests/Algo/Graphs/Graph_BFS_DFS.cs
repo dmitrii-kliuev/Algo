@@ -50,10 +50,10 @@ namespace leetcode.Tests.Algo.Graphs
             g.DFS_Non_recursive(0);
         }
 
-        class Graph
+        private class Graph
         {
-            private double[,] matrix;
-            private int n;
+            private readonly double[,] matrix;
+            private readonly int n;
             public Graph(int n)
             {
                 matrix = new double[n, n];

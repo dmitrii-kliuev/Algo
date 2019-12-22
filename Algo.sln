@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2041
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneLinkedList", "OneLinkedList\OneLinkedList.csproj", "{96853F67-E73B-4742-AE68-FC54E0328A0E}"
 EndProject
@@ -36,6 +36,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "leetcode.Tests", "leetcode.Tests\leetcode.Tests.csproj", "{208BE657-5291-4F88-8ED4-81B03944CE6B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "first_algo", "first_algo", "{A282CC51-619F-4F61-99C1-26C19D2F3030}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{750CA861-B307-466A-913B-3AC77081B7DF}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
