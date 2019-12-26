@@ -93,9 +93,8 @@ namespace leetcode.Tests
             }
         }
 
-
         [Theory]
-        [InlineData(new[] { 6, 1, 7 }, new[] { 2, 9, 5 }, new[] { 9, 1, 2 })]
+        //[InlineData(new[] { 6, 1, 7 }, new[] { 2, 9, 5 }, new[] { 9, 1, 2 })]
         [InlineData(new[] { 6, 1, 7, 8 }, new[] { 2, 9 }, new[] { 6, 2, 0, 7 })]
         public void TestForwardOrder(int[] firstArr, int[] secondArr, int[] expected)
         {
@@ -108,9 +107,59 @@ namespace leetcode.Tests
 
         private static class SolutionForwardOrder
         {
-            public static int[] Start(ListNode first, ListNode second)
+            public static int[] Start(ListNode l1, ListNode l2)
             {
+                var len1 = Length(l1);
+                var len2 = Length(l2);
+
+                if (len1 > len2)
+                    l2 = PadList(l2, len1 - len2);
+                else if (len2 > len1)
+                    l1 = PadList(l1, len2 - len1);
+
+
+
+
+
                 return null;
+            }
+
+            private static ListNode PadList(ListNode lst, int len)
+            {
+                for (int i = 0; i < len; i++)
+                    lst = InsertBefore(lst, 0);
+
+                return lst;
+            }
+
+            private static ListNode InsertBefore(ListNode node, int val)
+            {
+                var head = new ListNode(val)
+                {
+                    next = node
+                };
+
+                return head;
+            }
+
+            private static int Length(ListNode node)
+            {
+                if (node == null) return 0;
+
+                int i = 0;
+                while (node != null)
+                {
+                    node = node.next;
+                    i++;
+                }
+
+                return i;
+            }
+
+            private class PartialSum
+            {
+                public ListNode sum { get; set; }
+                public int carry { get; set; }
             }
         }
     }
