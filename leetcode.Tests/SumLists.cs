@@ -94,7 +94,7 @@ namespace leetcode.Tests
         }
 
         [Theory]
-        //[InlineData(new[] { 6, 1, 7 }, new[] { 2, 9, 5 }, new[] { 9, 1, 2 })]
+        [InlineData(new[] { 6, 1, 7 }, new[] { 2, 9, 5 }, new[] { 9, 1, 2 })]
         [InlineData(new[] { 6, 1, 7, 8 }, new[] { 2, 9 }, new[] { 6, 2, 0, 7 })]
         public void TestForwardOrder(int[] firstArr, int[] secondArr, int[] expected)
         {
@@ -117,11 +117,29 @@ namespace leetcode.Tests
                 else if (len2 > len1)
                     l1 = PadList(l1, len2 - len1);
 
+                var sum = addListsHelper(l1, l2);
 
+                if (sum.carry == 0)
+                    return ListNode.LinkedListToList(sum.sum).ToArray();
+                else
+                    return ListNode.LinkedListToList(InsertBefore(sum.sum, sum.carry)).ToArray();
+            }
 
+            private static PartialSum addListsHelper(ListNode l1, ListNode l2)
+            {
+                if (l1 == null && l2 == null)
+                    return new PartialSum();
 
+                var sum = addListsHelper(l1.next, l2.next);
 
-                return null;
+                var val = sum.carry + l1.val + l2.val;
+
+                var full_result = InsertBefore(sum.sum, val % 10);
+
+                sum.sum = full_result;
+                sum.carry = val / 10;
+
+                return sum;
             }
 
             private static ListNode PadList(ListNode lst, int len)
