@@ -96,6 +96,7 @@ namespace leetcode.Tests
         [Theory]
         [InlineData(new[] { 6, 1, 7 }, new[] { 2, 9, 5 }, new[] { 9, 1, 2 })]
         [InlineData(new[] { 6, 1, 7, 8 }, new[] { 2, 9 }, new[] { 6, 2, 0, 7 })]
+        [InlineData(new[] { 6, 5, 7 }, new[] { 7, 9, 8 }, new[] { 1, 4, 5, 5 })]
         public void TestForwardOrder(int[] firstArr, int[] secondArr, int[] expected)
         {
             var first = ListNode.FillList(firstArr);
