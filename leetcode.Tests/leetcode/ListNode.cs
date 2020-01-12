@@ -10,6 +10,20 @@ namespace leetcode.Tests.leetcode
         public ListNode next;
         public ListNode(int x) { val = x; }
 
+        public static void AddElement(ref ListNode root, ref ListNode lst, int val)
+        {
+            if (lst == null)
+            {
+                lst = new ListNode(val);
+                root = lst;
+            }
+            else
+            {
+                lst.next = new ListNode(val);
+                lst = lst.next;
+            }
+        }
+
         public static ListNode FillList(int[] arr)
         {
             if (arr == null) return null;

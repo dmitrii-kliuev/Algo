@@ -1,4 +1,5 @@
-﻿using System;
+﻿using leetcode.Tests.leetcode;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
@@ -7,8 +8,8 @@ namespace leetcode.Tests
 {
     public class LinkedListPartition
     {
-        /*  Partition: Write code to partition a linked list around a value x, such that all nodes less than x come
-            before all nodes greater than or equal to x. lf x is contained within the list, the values of x only need
+        /*  2.4 Partition: Write code to partition a linked list around a value x, such that all nodes less than x come
+            before all nodes greater than or equal to x. If x is contained within the list, the values of x only need
             to be after the elements less than x (see below). The partition element x can appear anywhere in the
             "right partition "; it does not need to appear between the left and right partitions.
             EXAMPLE
@@ -30,18 +31,76 @@ namespace leetcode.Tests
         */
 
         [Theory]
-        [InlineData("", true)]
-        public void Test(string str, bool expected)
+        [InlineData(new[] { 3, 5, 8, 5, 10, 2, 1 }, 5)]
+        [InlineData(new[] { 12, 11, 8, 5, 10, 7, 6 }, 5)]
+        [InlineData(new[] { 12, 11, 8, 5, 10, 7, 6 }, 15)]
+        public void Test(int[] arr, int partition)
         {
-            var actual = Solution.Start(str);
-            Assert.Equal(expected, actual);
+            var lst = ListNode.FillList(arr);
+
+            var actual = Solution.Start(lst, partition);
+
+            Assert.True(IsCorrect(actual, partition));
         }
 
-        public static class Solution
+        private bool IsCorrect(ListNode actual, int partition)
         {
-            public static bool Start(string str)
+            var lessThenPartitionFlag = true;
+            while (actual != null)
             {
-                return false;
+                if (actual.val < partition)
+                {
+                    if (lessThenPartitionFlag)
+                        actual = actual.next;
+                    else
+                        return false;
+                }
+                else if (actual.val >= partition)
+                {
+                    lessThenPartitionFlag = false;
+
+                    if (!lessThenPartitionFlag)
+                        actual = actual.next;
+                    else
+                        return false;
+                }
+            }
+
+            return true;
+        }
+
+        private static class Solution
+        {
+            public static ListNode Start(ListNode lst, int partition)
+            {
+                if (lst is null)
+                {
+                    throw new ArgumentNullException(nameof(lst));
+                }
+
+                ListNode left = null;
+                ListNode leftRoot = null;
+
+                ListNode right = null;
+                ListNode rightRoot = null;
+
+                while (lst != null)
+                {
+                    if (lst.val < partition)
+                        ListNode.AddElement(ref leftRoot, ref left, lst.val);
+                    else
+                        ListNode.AddElement(ref rightRoot, ref right, lst.val);
+
+                    lst = lst.next;
+                }
+
+                if (left != null)
+                {
+                    left.next = rightRoot;
+                    return leftRoot;
+                }
+                else
+                    return rightRoot;
             }
         }
     }
