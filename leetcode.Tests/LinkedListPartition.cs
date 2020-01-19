@@ -36,7 +36,7 @@ namespace leetcode.Tests
         [InlineData(new[] { 12, 11, 8, 5, 10, 7, 6 }, 15)]
         public void Test(int[] arr, int partition)
         {
-            var lst = ListNode.FillList(arr);
+            var lst = ListNode.ArrayToList(arr);
 
             var actual = Solution.Start(lst, partition);
 

@@ -15,9 +15,9 @@ namespace leetcode.Tests.leetcode
         [InlineData(new[] { 1, 2, 4 }, null, new int[] { 1, 2, 4 })]
         public void MergeTwoSortedLists(int[] arr1, int[] arr2, int[] expectedArr)
         {
-            var l1 = ListNode.FillList(arr1);
-            var l2 = ListNode.FillList(arr2);
-            var expected = ListNode.FillList(expectedArr);
+            var l1 = ListNode.ArrayToList(arr1);
+            var l2 = ListNode.ArrayToList(arr2);
+            var expected = ListNode.ArrayToList(expectedArr);
 
 
             var expectedList = ListNode.LinkedListToList(expected);

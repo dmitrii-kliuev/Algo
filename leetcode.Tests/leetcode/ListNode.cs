@@ -24,7 +24,7 @@ namespace leetcode.Tests.leetcode
             }
         }
 
-        public static ListNode FillList(int[] arr)
+        public static ListNode ArrayToList(int[] arr)
         {
             if (arr == null) return null;
 

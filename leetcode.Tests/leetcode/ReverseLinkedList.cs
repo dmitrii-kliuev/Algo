@@ -12,7 +12,7 @@ namespace leetcode.Tests.leetcode
         [InlineData(new[] { 1, 2, 3, 4, 5 }, new[] { 5, 4, 3, 2, 1 })]
         public void Test(int[] arr, int[] expected)
         {
-            var l = ListNode.FillList(arr);
+            var l = ListNode.ArrayToList(arr);
             var s = new Solution();
             var actual = s.ReverseList(l);
             var actualList = ListNode.LinkedListToList(actual);

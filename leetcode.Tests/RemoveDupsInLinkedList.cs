@@ -20,7 +20,7 @@ namespace leetcode.Tests
         [InlineData(null, null)]
         public void TestViaHashSet(int[] arr, int[] expected)
         {
-            var root = ListNode.FillList(arr);
+            var root = ListNode.ArrayToList(arr);
 
             var actual = SolutionViaHashSet.RemoveDups(root);
             Assert.Equal(expected, actual);
@@ -33,7 +33,7 @@ namespace leetcode.Tests
         [InlineData(null, null)]
         public void TestViaDoublePointer(int[] arr, int[] expected)
         {
-            var root = ListNode.FillList(arr);
+            var root = ListNode.ArrayToList(arr);
 
             var actual = SolutionViaDoublePointer.RemoveDups(root);
             Assert.Equal(expected, actual);

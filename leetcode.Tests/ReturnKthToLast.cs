@@ -14,7 +14,7 @@ namespace leetcode.Tests
         [InlineData(new[] { 2, 1, 5, 4, 1, 4 }, 3, 4)]
         public void TestWithLength(int[] arr, int k, int expected)
         {
-            var root = ListNode.FillList(arr);
+            var root = ListNode.ArrayToList(arr);
 
             var actual = SolutionWithLength.Start(root, k);
             Assert.Equal(expected, actual);
@@ -51,7 +51,7 @@ namespace leetcode.Tests
         [InlineData(new[] { 2, 1, 5, 4, 1, 4 }, 3, 4)]
         public void TestWithStack(int[] arr, int k, int expected)
         {
-            var root = ListNode.FillList(arr);
+            var root = ListNode.ArrayToList(arr);
 
             var actual = SolutionWithStack.Start(root, k);
             Assert.Equal(expected, actual);
@@ -83,7 +83,7 @@ namespace leetcode.Tests
         [InlineData(new[] { 2, 1, 5, 4, 1, 4 }, 3, 4)]
         public void TestWithTwoPointers(int[] arr, int k, int expected)
         {
-            var root = ListNode.FillList(arr);
+            var root = ListNode.ArrayToList(arr);
 
             var actual = SolutionWithTwoPointers.Start(root, k);
             Assert.Equal(expected, actual);
@@ -116,7 +116,7 @@ namespace leetcode.Tests
         [InlineData(new[] { 2, 1, 5, 4, 1, 4 }, 3, 4)]
         public void TestWithRecursion(int[] arr, int k, int expected)
         {
-            var root = ListNode.FillList(arr);
+            var root = ListNode.ArrayToList(arr);
 
             var actual = SolutionWithRecursion.Start(root, k);
             Assert.Equal(expected, actual);

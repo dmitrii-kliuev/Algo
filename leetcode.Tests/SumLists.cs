@@ -29,8 +29,8 @@ namespace leetcode.Tests
         [InlineData(new[] { 9, 7, 8 }, new[] { 6, 8, 5 }, new[] { 5, 6, 4, 1 })]
         public void TestReversOrder(int[] firstArr, int[] secondArr, int[] expected)
         {
-            var first = ListNode.FillList(firstArr);
-            var second = ListNode.FillList(secondArr);
+            var first = ListNode.ArrayToList(firstArr);
+            var second = ListNode.ArrayToList(secondArr);
 
             var actual = SolutionReversOrder.Start(first, second);
             Assert.Equal(expected, actual);
@@ -99,8 +99,8 @@ namespace leetcode.Tests
         [InlineData(new[] { 6, 5, 7 }, new[] { 7, 9, 8 }, new[] { 1, 4, 5, 5 })]
         public void TestForwardOrder(int[] firstArr, int[] secondArr, int[] expected)
         {
-            var first = ListNode.FillList(firstArr);
-            var second = ListNode.FillList(secondArr);
+            var first = ListNode.ArrayToList(firstArr);
+            var second = ListNode.ArrayToList(secondArr);
 
             var actual = SolutionForwardOrder.Start(first, second);
             Assert.Equal(expected, actual);

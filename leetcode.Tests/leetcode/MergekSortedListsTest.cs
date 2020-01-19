@@ -12,18 +12,18 @@ namespace leetcode.Tests.leetcode
         public void MergeKsortedLists(int[] arr1, int[] arr2, int[] arr3)
         {
             var list = new ListNode[3];
-            list[0] = ListNode.FillList(arr1);
-            list[1] = ListNode.FillList(arr2);
-            list[2] = ListNode.FillList(arr3);
+            list[0] = ListNode.ArrayToList(arr1);
+            list[1] = ListNode.ArrayToList(arr2);
+            list[2] = ListNode.ArrayToList(arr3);
 
             var s = new Solution();
-            var insertRes = s.Insert(ListNode.FillList(arr1), 2);
+            var insertRes = s.Insert(ListNode.ArrayToList(arr1), 2);
             //var insertRes1 = Insert(FillList(arr1), 0);
-            var insertRes2 = s.Insert(ListNode.FillList(arr1), 6);
+            var insertRes2 = s.Insert(ListNode.ArrayToList(arr1), 6);
 
-            var insertRes3 = s.Insert(ListNode.FillList(new int[] { 1, 2, 4, 7, 14, 25, 45 }), 6);
-            var insertRes4 = s.Insert(ListNode.FillList(new int[] { 1, 2, 4, 7, 14, 25, 45 }), 0);
-            var insertRes5 = s.Insert(ListNode.FillList(new int[] { 1, 2, 4, 7, 14, 25, 45 }), 47);
+            var insertRes3 = s.Insert(ListNode.ArrayToList(new int[] { 1, 2, 4, 7, 14, 25, 45 }), 6);
+            var insertRes4 = s.Insert(ListNode.ArrayToList(new int[] { 1, 2, 4, 7, 14, 25, 45 }), 0);
+            var insertRes5 = s.Insert(ListNode.ArrayToList(new int[] { 1, 2, 4, 7, 14, 25, 45 }), 47);
             
             var res = s.MergeKLists(list);
         }

@@ -20,7 +20,7 @@ namespace leetcode.Tests
         [InlineData(new[] { 2, 1, 5, 4, 1, 4 }, new[] { 1, 5, 4, 1, 4 }, 0)] // first element. Because I can :)
         public void Test(int[] arr, int[] expected, int idx)
         {
-            var root = ListNode.FillList(arr);
+            var root = ListNode.ArrayToList(arr);
 
             int i = 0;
             var current = root;

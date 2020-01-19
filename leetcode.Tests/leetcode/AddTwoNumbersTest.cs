@@ -16,8 +16,8 @@ namespace leetcode.Tests.leetcode
         [InlineData(new[] { 9, 8 }, new[] { 1 }, new[] { 0, 9 })]
         public void Test(int[] arr1, int[] arr2, int[] expected)
         {
-            var l1 = ListNode.FillList(arr1);
-            var l2 = ListNode.FillList(arr2);
+            var l1 = ListNode.ArrayToList(arr1);
+            var l2 = ListNode.ArrayToList(arr2);
             
 
             var s = new Solution();
