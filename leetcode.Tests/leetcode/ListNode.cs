@@ -59,5 +59,19 @@ namespace leetcode.Tests.leetcode
 
             return list;
         }
+
+        public static int Length(ListNode node)
+        {
+            if (node == null) return 0;
+
+            int i = 0;
+            while (node != null)
+            {
+                node = node.next;
+                i++;
+            }
+
+            return i;
+        }
     }
 }

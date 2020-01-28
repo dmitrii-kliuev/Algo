@@ -110,8 +110,8 @@ namespace leetcode.Tests
         {
             public static int[] Start(ListNode l1, ListNode l2)
             {
-                var len1 = Length(l1);
-                var len2 = Length(l2);
+                var len1 = ListNode.Length(l1);
+                var len2 = ListNode.Length(l2);
 
                 if (len1 > len2)
                     l2 = PadList(l2, len1 - len2);
@@ -159,20 +159,6 @@ namespace leetcode.Tests
                 };
 
                 return head;
-            }
-
-            private static int Length(ListNode node)
-            {
-                if (node == null) return 0;
-
-                int i = 0;
-                while (node != null)
-                {
-                    node = node.next;
-                    i++;
-                }
-
-                return i;
             }
 
             private class PartialSum
