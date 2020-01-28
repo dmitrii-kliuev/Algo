@@ -32,7 +32,7 @@ namespace leetcode.Tests.CrackingTheCodingInterview
         [Theory]
         [InlineData(new[] { 4, 1 }, new[] { 5, 0, 1 }, new[] { 8, 4, 5 }, true, 8)]
         [InlineData(new[] { 4, 1 }, new[] { 5, 0, 1 }, new[] { 8 }, true, 8)]
-        [InlineData(new[] { 4, 1 }, new[] { 5, 0, 1 }, null, false, null)]
+        [InlineData(new[] { 4, 1 }, new[] { 5, 0, 2 }, null, false, null)]
         [InlineData(new[] { 7, 4, 1 }, new[] { 5, 0, 1 }, new[] { 8, 4, 5 }, true, 8)]
         [InlineData(new[] { 1, 2, 3, 7, 4, 1 }, new[] { 5, 0, 1 }, new[] { 11, 4, 5 }, true, 11)]
         public void TestIntersectAndFindFirst(int[] aArr, int[] bArr, int[] cArr, bool expectedIntersection, int? expectedVal)
@@ -70,23 +70,26 @@ namespace leetcode.Tests.CrackingTheCodingInterview
 
             internal static (bool, ListNode) IntersectAndFindFirst(ListNode a, ListNode b)
             {
-                var aLen = ListNode.Length(a);
-                var bLen = ListNode.Length(b);
+                bool isIntersect = false;
 
-                var diff = Math.Abs(aLen - bLen);
+                (int len, ListNode last) aInfo = ListNode.LengthAndLastNode(a);
+                (int len, ListNode last) bInfo = ListNode.LengthAndLastNode(b);
 
-                if (aLen > bLen)
+                if (aInfo.last != bInfo.last) return (isIntersect, null);
+
+                var diff = Math.Abs(aInfo.len - bInfo.len);
+
+                if (aInfo.len > bInfo.len)
                 {
                     for (int i = 0; i < diff; i++)
                         a = a.next;
                 }
-                else if (bLen > aLen)
+                else if (bInfo.len > aInfo.len)
                 {
                     for (int i = 0; i < diff; i++)
                         b = b.next;
                 }
 
-                bool isIntersect = false;
                 while (a != null && b != null)
                 {
                     if (a == b)

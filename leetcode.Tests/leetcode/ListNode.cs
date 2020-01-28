@@ -73,5 +73,22 @@ namespace leetcode.Tests.leetcode
 
             return i;
         }
+
+        public static (int, ListNode) LengthAndLastNode(ListNode node)
+        {
+            if (node == null) return (0, null);
+
+            ListNode last = null;
+
+            int i = 0;
+            while (node != null)
+            {
+                last = node;
+                node = node.next;
+                i++;
+            }
+
+            return (i, last);
+        }
     }
 }
