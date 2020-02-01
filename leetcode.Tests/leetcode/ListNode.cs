@@ -10,17 +10,17 @@ namespace leetcode.Tests.leetcode
         public ListNode next;
         public ListNode(int x) { val = x; }
 
-        public static void AddElement(ref ListNode root, ref ListNode lst, int val)
+        public static void AddElement(ref ListNode root, ref ListNode node, int val)
         {
-            if (lst == null)
+            if (node == null)
             {
-                lst = new ListNode(val);
-                root = lst;
+                node = new ListNode(val);
+                root = node;
             }
             else
             {
-                lst.next = new ListNode(val);
-                lst = lst.next;
+                node.next = new ListNode(val);
+                node = node.next;
             }
         }
 
