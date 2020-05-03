@@ -20,7 +20,7 @@ namespace leetcode.Tests
             Assert.Equal(expected, actual);
         }
 
-        static class SolutionWithLength
+        private static class SolutionWithLength
         {
             public static int Start(ListNode root, int k)
             {
@@ -57,14 +57,14 @@ namespace leetcode.Tests
             Assert.Equal(expected, actual);
         }
 
-        class SolutionWithStack
+        private class SolutionWithStack
         {
             public static int Start(ListNode root, int k)
             {
                 if (root == null) throw new Exception("root is null");
 
                 var current = root;
-                var s = new MyStack();
+                var s = new MyStack<int>();
                 while (current != null)
                 {
                     s.Push(current.val);
@@ -89,7 +89,7 @@ namespace leetcode.Tests
             Assert.Equal(expected, actual);
         }
 
-        class SolutionWithTwoPointers
+        private class SolutionWithTwoPointers
         {
             public static int Start(ListNode root, int k)
             {
@@ -122,10 +122,10 @@ namespace leetcode.Tests
             Assert.Equal(expected, actual);
         }
 
-        class SolutionWithRecursion
+        private class SolutionWithRecursion
         {
-            static int i;
-            static int result;
+            private static int i;
+            private static int result;
 
             public static int Start(ListNode root, int k)
             {
