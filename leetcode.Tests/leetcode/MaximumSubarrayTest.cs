@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class MaximumSubarrayTest
@@ -30,11 +28,11 @@ namespace leetcode.Tests.leetcode
 
                 var max = nums[0];
                 var ans = max;
-                
+
                 for (int i = 1; i < nums.Length; i++)
                 {
                     max = Math.Max(nums[i], max + nums[i]);
-                    
+
                     if (max > ans)
                         ans = max;
                 }
@@ -47,16 +45,16 @@ namespace leetcode.Tests.leetcode
         {
             public int MaxSubArray(int[] nums)
             {
-                if (nums.Length == 0)return 0;
+                if (nums.Length == 0) return 0;
 
                 var n = nums.Length;
                 var ans = nums[0];
-                
+
                 for (int sub_array_size = 1; sub_array_size <= n; sub_array_size++)
                 {
                     for (int start_index = 0; start_index < n; start_index++)
                     {
-                        if(start_index + sub_array_size > n) break;
+                        if (start_index + sub_array_size > n) break;
 
                         var sum = 0;
                         for (int k = start_index; k < (start_index + sub_array_size); k++)

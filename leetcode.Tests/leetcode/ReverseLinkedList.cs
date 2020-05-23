@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class ReverseLinkedList
     {
@@ -34,9 +31,10 @@ namespace leetcode.Tests.leetcode
                 ListNode root = null;
                 while (head != null)
                 {
-                    var node = new ListNode(head.val);
-
-                    node.next = root;
+                    var node = new ListNode(head.val)
+                    {
+                        next = root
+                    };
                     root = node;
 
                     head = head.next;

@@ -1,9 +1,8 @@
-﻿using leetcode.Tests.leetcode;
+﻿using Algo.Tests.leetcode;
 using System;
 using Xunit;
-using static leetcode.Tests.leetcode.ImplementStackUsingQueues;
 
-namespace leetcode.Tests
+namespace Algo.Tests
 {
     public class ReturnKthToLast
     {
@@ -42,7 +41,9 @@ namespace leetcode.Tests
                     i++;
                 }
 
-                return current.val;
+                if (current != null) return current.val;
+
+                throw new Exception();
             }
         }
 
@@ -124,28 +125,28 @@ namespace leetcode.Tests
 
         private class SolutionWithRecursion
         {
-            private static int i;
-            private static int result;
+            private static int _i;
+            private static int _result;
 
             public static int Start(ListNode root, int k)
             {
-                i = 0;
-                result = 0;
+                _i = 0;
+                _result = 0;
 
                 if (root == null) throw new Exception("root is null");
 
                 Find(root, k);
-                return result;
+                return _result;
             }
 
-            public static void Find(ListNode root, int k)
+            private static void Find(ListNode root, int k)
             {
                 if (root == null)
                     return;
 
                 Find(root.next, k);
-                if (++i == k)
-                    result = root.val;
+                if (++_i == k)
+                    _result = root.val;
             }
         }
     }

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class NRepeatedElementInSize2NArray
     {
@@ -16,25 +14,26 @@ namespace leetcode.Tests.leetcode
         {
             int k = 1;
             var test = (k++ + ++k); // 4
+            Debug.WriteLine(test);
 
             var s = new Solution();
             var actual = s.RepeatedNTimes(arr);
             Assert.Equal(expected, actual);
         }
 
-        public class Solution
+        private class Solution
         {
-            public int RepeatedNTimes(int[] A)
+            public int RepeatedNTimes(int[] a)
             {
                 var tmp = new int[10000];
                 var res = 0;
-                for (int i = 0; i < A.Length; i++)
+                for (int i = 0; i < a.Length; i++)
                 {
-                    if (tmp[A[i]] == 0)
-                        tmp[A[i]] = 1;
+                    if (tmp[a[i]] == 0)
+                        tmp[a[i]] = 1;
                     else
                     {
-                        return A[i];
+                        return a[i];
                     }
                 }
 
@@ -45,13 +44,13 @@ namespace leetcode.Tests.leetcode
 
         public class SolutionWithHashSet
         {
-            public int RepeatedNTimes(int[] A)
+            public int RepeatedNTimes(int[] a)
             {
                 var hs = new HashSet<int>();
                 var res = 0;
-                for (int i = 0; i < A.Length; i++)
+                for (int i = 0; i < a.Length; i++)
                 {
-                    if (!hs.Add(A[i])) return A[i];
+                    if (!hs.Add(a[i])) return a[i];
                 }
 
                 return res;

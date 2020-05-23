@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HashTable
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             var table = new HashTable<string, string>(10);
             table.Add("Surname", "Petrov");
@@ -31,6 +28,7 @@ namespace HashTable
 
 
             var res = table.GetValue("City");
+            Console.WriteLine(res);
 
             table.Remove("Name");
 
@@ -40,10 +38,9 @@ namespace HashTable
         public class HashTable<TKey, TValue>
         {
             private int _size;
-            private int _totalCount;
             private int _capacity;
             private LinkedList<HashTableItem<TKey, TValue>>[] _table;
-            private double maxLoadFactor = 0.75;
+            private readonly double maxLoadFactor = 0.75;
 
             public HashTable(int size)
             {
@@ -85,7 +82,6 @@ namespace HashTable
                 var tableItem = new HashTableItem<TKey, TValue>(key, value);
 
                 _table[hash].AddFirst(tableItem);
-                _totalCount++;
             }
 
             private void Resize()
@@ -93,7 +89,6 @@ namespace HashTable
                 var oldTable = _table;
                 _capacity = _capacity * 2;
                 _size = 0;
-                _totalCount = 0;
 
                 _table = new LinkedList<HashTableItem<TKey, TValue>>[_capacity];
 
@@ -114,7 +109,7 @@ namespace HashTable
                 var hash = Hash(key);
                 if (_table[hash] == null)
                     return default(TValue);
-                
+
                 foreach (var hashTableItem in _table[hash])
                 {
                     if (hashTableItem.Key.Equals(key))
@@ -127,7 +122,7 @@ namespace HashTable
             public bool Remove(TKey key)
             {
                 var hash = Hash(key);
-                if(_table[hash] == null)
+                if (_table[hash] == null)
                     return false;
 
                 foreach (var hashTableItem in _table[hash])

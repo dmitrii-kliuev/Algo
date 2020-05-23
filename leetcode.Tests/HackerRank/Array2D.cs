@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.HackerRank
+namespace Algo.Tests.HackerRank
 {
     public class Array2D
     {
@@ -55,18 +51,18 @@ namespace leetcode.Tests.HackerRank
 
         public class Solution
         {
-            const int hourglassWidth = 3;
-            const int hourglassHeight = 3;
+            private const int HourglassWidth = 3;
+            private const int HourglassHeight = 3;
 
             public int HourglassSum(int[][] arr)
             {
-                
+
                 var arrSide = arr.Length;
 
                 var max = GetHourglassSum(arr, 0, 0);
-                for (int i = 0; i < arrSide - hourglassHeight + 1 ; i++)
+                for (int i = 0; i < arrSide - HourglassHeight + 1; i++)
                 {
-                    for (int j = 0; j < arrSide - hourglassWidth + 1; j++)
+                    for (int j = 0; j < arrSide - HourglassWidth + 1; j++)
                     {
                         var nextSum = GetHourglassSum(arr, i, j);
                         if (nextSum > max)
@@ -80,9 +76,9 @@ namespace leetcode.Tests.HackerRank
             public int GetHourglassSum(int[][] arr, int iShift, int jShift)
             {
                 var sum = 0;
-                for (int i = iShift; i < hourglassHeight + iShift; i++)
+                for (int i = iShift; i < HourglassHeight + iShift; i++)
                 {
-                    for (int j = jShift; j < hourglassWidth + jShift; j++)
+                    for (int j = jShift; j < HourglassWidth + jShift; j++)
                     {
                         if (!(i == 1 + iShift && j == 0 + jShift)
                             && !(i == 1 + iShift && j == 2 + jShift))

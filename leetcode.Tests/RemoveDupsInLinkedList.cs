@@ -1,11 +1,9 @@
-﻿using leetcode.Tests.leetcode;
-using System;
+﻿using Algo.Tests.leetcode;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests
+namespace Algo.Tests
 {
     public class RemoveDupsInLinkedList
     {
@@ -39,7 +37,7 @@ namespace leetcode.Tests
             Assert.Equal(expected, actual);
         }
 
-        static class SolutionViaHashSet
+        private static class SolutionViaHashSet
         {
             public static int[] RemoveDups(ListNode root)
             {
@@ -77,7 +75,7 @@ namespace leetcode.Tests
             }
         }
 
-        static class SolutionViaDoublePointer
+        private static class SolutionViaDoublePointer
         {
             public static int[] RemoveDups(ListNode root)
             {

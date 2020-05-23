@@ -33,7 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "partialTest", "partialTest\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeAngle", "TimeAngle\TimeAngle.csproj", "{F17CCF25-534D-4BDD-A03E-EC952DFE4908}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "leetcode.Tests", "leetcode.Tests\leetcode.Tests.csproj", "{208BE657-5291-4F88-8ED4-81B03944CE6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algo.Tests", "leetcode.Tests\Algo.Tests.csproj", "{208BE657-5291-4F88-8ED4-81B03944CE6B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "first_algo", "first_algo", "{A282CC51-619F-4F61-99C1-26C19D2F3030}"
 EndProject

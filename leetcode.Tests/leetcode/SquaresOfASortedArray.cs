@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class SquaresOfASortedArray
     {
@@ -19,12 +18,12 @@ namespace leetcode.Tests.leetcode
 
         public class Solution
         {
-            public int[] SortedSquares(int[] A)
+            public int[] SortedSquares(int[] a)
             {
                 var list = new List<int>();
-                for (int i = 0; i < A.Length; i++)
+                for (int i = 0; i < a.Length; i++)
                 {
-                    list.Add(A[i] * A[i]);
+                    list.Add(a[i] * a[i]);
                 }
 
                 list.Sort();
@@ -32,24 +31,24 @@ namespace leetcode.Tests.leetcode
                 return list.ToArray();
             }
         }
-        
-        class SolutionOn
+
+        private class SolutionOn
         {
-            public int[] SortedSquares(int[] A)
+            public int[] SortedSquares(int[] a)
             {
-                int n = A.Length;
+                int n = a.Length;
                 int[] result = new int[n];
                 int i = 0, j = n - 1;
                 for (int p = n - 1; p >= 0; p--)
                 {
-                    if (Math.Abs(A[i]) > Math.Abs(A[j]))
+                    if (Math.Abs(a[i]) > Math.Abs(a[j]))
                     {
-                        result[p] = A[i] * A[i];
+                        result[p] = a[i] * a[i];
                         i++;
                     }
                     else
                     {
-                        result[p] = A[j] * A[j];
+                        result[p] = a[j] * a[j];
                         j--;
                     }
                 }

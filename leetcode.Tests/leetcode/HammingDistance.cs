@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class HammingDistance
     {
@@ -15,8 +12,8 @@ namespace leetcode.Tests.leetcode
             var s = new Solution();
             var actual = s.HammingDistance(x, y);
 
-            var xBinary = Convert.ToString(x, 2);
-            var yBinary = Convert.ToString(y, 2);
+            //var xBinary = Convert.ToString(x, 2);
+            //var yBinary = Convert.ToString(y, 2);
             Assert.Equal(expected, actual);
         }
 

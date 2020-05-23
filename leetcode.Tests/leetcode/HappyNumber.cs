@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class HappyNumber
     {
@@ -26,7 +24,7 @@ namespace leetcode.Tests.leetcode
             {
                 var isHappy = false;
                 var curr = n;
-                var sum = 0;
+                int sum;
 
                 var hs = new HashSet<int>();
 
@@ -74,9 +72,9 @@ namespace leetcode.Tests.leetcode
             Assert.Equal(isHappy, actual);
         }
 
-        public class Solution2
+        private class Solution2
         {
-            public int digitSquareSum(int n)
+            public static int DigitSquareSum(int n)
             {
                 int sum = 0, tmp;
                 while (n != 0)
@@ -94,12 +92,12 @@ namespace leetcode.Tests.leetcode
                 slow = fast = n;
                 do
                 {
-                    slow = digitSquareSum(slow);
-                    fast = digitSquareSum(fast);
-                    fast = digitSquareSum(fast);
+                    slow = DigitSquareSum(slow);
+                    fast = DigitSquareSum(fast);
+                    fast = DigitSquareSum(fast);
                 } while (slow != fast);
                 if (slow == 1) return true;
-                else return false;
+                return false;
             }
         }
         #endregion

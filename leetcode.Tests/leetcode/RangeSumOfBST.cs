@@ -1,11 +1,7 @@
-﻿using leetcode.Tests.leetcode.TreeProblems;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
+﻿using Algo.Tests.leetcode.TreeProblems;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     /*
         Given the root node of a binary search tree, 
@@ -39,48 +35,48 @@ namespace leetcode.Tests.leetcode
         The number of nodes in the tree is at most 10000.
         The final answer is guaranteed to be less than 2^31.*/
 
-    public class RangeSumOfBST
+    public class RangeSumOfBst
     {
         [Theory]
-        [InlineData(new int[] { 10, 5, 15, 3, 7, 18 }, 7, 15, 32)]
-        [InlineData(new int[] { 10, 5, 15, 3, 7, 13, 18, 1, 6 }, 6, 10, 23)]
-        public void Test(int[] arr, int L, int R, int expected)
+        [InlineData(new[] { 10, 5, 15, 3, 7, 18 }, 7, 15, 32)]
+        [InlineData(new[] { 10, 5, 15, 3, 7, 13, 18, 1, 6 }, 6, 10, 23)]
+        public void Test(int[] arr, int l, int r, int expected)
         {
             var bt = new BinaryTreeInt();
             bt.AddRange(arr);
-            bt.InOrderTraversal(bt._root);
+            bt.InOrderTraversal(bt.Root);
 
             var s = new Solution();
-            var actual = s.RangeSumBST(bt._root, L, R);
+            var actual = s.RangeSumBst(bt.Root, l, r);
             Assert.Equal(expected, actual);
         }
 
-        public class Solution
+        private class Solution
         {
-            public int RangeSumBST(TreeNode root, int L, int R)
+            public int RangeSumBst(TreeNode root, int l, int r)
             {
-                var res = Sum(root, 0, L, R);
+                var res = Sum(root, 0, l, r);
 
                 return res;
             }
 
-            public int Sum(TreeNode node, int s, int L, int R)
+            public int Sum(TreeNode node, int s, int l, int r)
             {
                 if (node.left != null)
-                   s = Sum(node.left, s, L, R);
+                    s = Sum(node.left, s, l, r);
 
-                if (node.val >= L && node.val <= R)
+                if (node.val >= l && node.val <= r)
                     s += node.val;
 
                 if (node.right != null)
-                    s = Sum(node.right, s, L, R);
+                    s = Sum(node.right, s, l, r);
 
                 return s;
             }
 
         }
 
-        /**
+        /*
          * Definition for a binary tree node.
          * public class TreeNode {
          *     public int val;

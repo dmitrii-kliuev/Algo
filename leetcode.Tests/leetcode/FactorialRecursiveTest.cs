@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class FactorialRecursiveTest
     {
@@ -23,11 +20,12 @@ namespace leetcode.Tests.leetcode
 
         public class Solution
         {
-            public int Fact(int x) => 
-                x == 0 ? 0 : 
-                x == 1 ? 1 : 
-                x * Fact(x - 1);
-                
+            public int Fact(int x)
+            {
+                return x == 0 ? 0 :
+x == 1 ? 1 :
+x * Fact(x - 1);
+            }
 
             public int Factorial(int x)
             {

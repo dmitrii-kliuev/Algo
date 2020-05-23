@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
 
     /* Move Zeroes
@@ -20,7 +17,7 @@ You must do this in-place without making a copy of the array.
 Minimize the total number of operations.*/
     public class MoveZeroesTest
     {
-        [Xunit.Theory]
+        [Theory]
         [InlineData(new[] { 0, 1, 0, 3, 12 }, new[] { 1, 3, 12, 0, 0 })]
         [InlineData(new[] { 0, 0, 1 }, new[] { 1, 0, 0 })]
         public void Test(int[] arr, int[] expected)
@@ -36,33 +33,33 @@ Minimize the total number of operations.*/
             st.MoveZeroes(arr);
             Assert.Equal(expected, arr);
         }
-
-    }
-
-    public class Solution
-    {
-        public void MoveZeroes(int[] nums)
+        private class Solution
         {
-            var tailQty = 0;
-            for (int i = nums.Length - 1; i >= 0; i--)
+            public void MoveZeroes(int[] nums)
             {
-                if (nums[i] == 0)
+                var tailQty = 0;
+                for (int i = nums.Length - 1; i >= 0; i--)
                 {
-                    tailQty++;
-                    Shift(nums, i, tailQty);
-                    nums[nums.Length - tailQty] = 0;
+                    if (nums[i] == 0)
+                    {
+                        tailQty++;
+                        Shift(nums, i, tailQty);
+                        nums[nums.Length - tailQty] = 0;
+                    }
+                }
+            }
+
+            public void Shift(int[] nums, int pos, int tailQty)
+            {
+                for (int i = pos; i < nums.Length - tailQty; i++)
+                {
+                    nums[i] = nums[i + 1];
                 }
             }
         }
-
-        public void Shift(int[] nums, int pos, int tailQty)
-        {
-            for (int i = pos; i < nums.Length - tailQty; i++)
-            {
-                nums[i] = nums[i + 1];
-            }
-        }
     }
+
+
 
     public class SolutionTrivial
     {

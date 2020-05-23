@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.Algo
+namespace Algo.Tests.Algo.DynamicProgramming
 {
     public class Fibonacci
     {

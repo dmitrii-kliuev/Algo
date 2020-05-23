@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 using Xunit;
-using Xunit.Sdk;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class UniqueMorseCodeWords
     {
@@ -17,9 +15,9 @@ namespace leetcode.Tests.leetcode
             Assert.Equal(expected, actual);
         }
 
-        public class Solution
+        private class Solution
         {
-            private string[] morse =
+            private readonly string[] _morse =
             {
                 ".-", "-...", "-.-.", "-..", ".",
                 "..-.", "--.", "....", "..", ".---",
@@ -38,7 +36,7 @@ namespace leetcode.Tests.leetcode
                     foreach (var ch in word)
                     {
                         var i = ch - distance;
-                        sb.Append(morse[i]);
+                        sb.Append(_morse[i]);
                     }
 
                     hs.Add(sb.ToString());

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class DeleteColumnsToMakeSorted
     {
@@ -21,14 +18,14 @@ namespace leetcode.Tests.leetcode
 
         public class Solution
         {
-            public int MinDeletionSize(string[] A)
+            public int MinDeletionSize(string[] a)
             {
                 var res = 0;
 
-                for (int i = 0; i < A[0].Length; i++)
+                for (int i = 0; i < a[0].Length; i++)
                 {
                     var prev = (char)0;
-                    foreach (var s in A)
+                    foreach (var s in a)
                     {
                         if (prev <= s[i])
                         {

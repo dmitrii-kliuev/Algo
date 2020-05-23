@@ -4,19 +4,19 @@ using System.Diagnostics;
 using System.Drawing;
 using Xunit;
 
-namespace leetcode.Tests.Algo
+namespace Algo.Tests.Algo
 {
     public class MaxSquareSubArrays
     {
         [Fact]
         public void Test0()
         {
-            var arr = new int[][]
+            var arr = new[]
             {
-                new int[]{ 1, 1, 1, 0 },
-                new int[]{ 1, 1, 1, 0 },
-                new int[]{ 1, 1, 1, 0 },
-                new int[]{ 0, 0, 0, 0 }
+                new[]{ 1, 1, 1, 0 },
+                new[]{ 1, 1, 1, 0 },
+                new[]{ 1, 1, 1, 0 },
+                new[]{ 0, 0, 0, 0 }
             };
 
             Assert.Equal(expected: 3, actual: Solution.Start(arr));
@@ -25,12 +25,12 @@ namespace leetcode.Tests.Algo
         [Fact]
         public void Test1()
         {
-            var arr = new int[][]
+            var arr = new[]
             {
-                new int[]{ 1, 1, 1, 0, 1, 1, 1, 1 },
-                new int[]{ 1, 1, 1, 0, 1, 1, 1, 1 },
-                new int[]{ 1, 1, 1, 0, 1, 1, 1, 1 },
-                new int[]{ 0, 0, 0, 0, 1, 1, 1, 1 }
+                new[]{ 1, 1, 1, 0, 1, 1, 1, 1 },
+                new[]{ 1, 1, 1, 0, 1, 1, 1, 1 },
+                new[]{ 1, 1, 1, 0, 1, 1, 1, 1 },
+                new[]{ 0, 0, 0, 0, 1, 1, 1, 1 }
             };
 
             Assert.Equal(expected: 4, actual: Solution.Start(arr));
@@ -39,19 +39,19 @@ namespace leetcode.Tests.Algo
         [Fact]
         public void Test2()
         {
-            var arr = new int[][]
+            var arr = new[]
             {
-                new int[]{ 0, 0, 0, 0, 0, 0, 0, 0 },
-                new int[]{ 0, 0, 0, 0, 0, 0, 0, 0 },
-                new int[]{ 0, 0, 1, 1, 0, 0, 0, 0 },
-                new int[]{ 0, 0, 1, 1, 0, 0, 0, 0 },
-                new int[]{ 0, 0, 0, 0, 0, 0, 0, 0 },
-                new int[]{ 0, 0, 0, 0, 0, 0, 0, 0 },
-                new int[]{ 0, 0, 0, 0, 0, 0, 0, 0 },
-                new int[]{ 0, 0, 0, 0, 1, 1, 1, 0 },
-                new int[]{ 0, 0, 0, 0, 1, 1, 1, 0 },
-                new int[]{ 0, 0, 0, 0, 1, 1, 1, 0 },
-                new int[]{ 0, 0, 0, 0, 0, 0, 0, 0 }
+                new[]{ 0, 0, 0, 0, 0, 0, 0, 0 },
+                new[]{ 0, 0, 0, 0, 0, 0, 0, 0 },
+                new[]{ 0, 0, 1, 1, 0, 0, 0, 0 },
+                new[]{ 0, 0, 1, 1, 0, 0, 0, 0 },
+                new[]{ 0, 0, 0, 0, 0, 0, 0, 0 },
+                new[]{ 0, 0, 0, 0, 0, 0, 0, 0 },
+                new[]{ 0, 0, 0, 0, 0, 0, 0, 0 },
+                new[]{ 0, 0, 0, 0, 1, 1, 1, 0 },
+                new[]{ 0, 0, 0, 0, 1, 1, 1, 0 },
+                new[]{ 0, 0, 0, 0, 1, 1, 1, 0 },
+                new[]{ 0, 0, 0, 0, 0, 0, 0, 0 }
             };
 
             Assert.Equal(expected: 3, actual: Solution.Start(arr));
@@ -60,33 +60,32 @@ namespace leetcode.Tests.Algo
         [Fact]
         public void Test3()
         {
-            var arr = new int[][]
+            var arr = new[]
             {
-                new int[]{ 0, 0, 0, 0, 0, 0, 0, 0 },
-                new int[]{ 0, 0, 0, 0, 0, 0, 0, 0 },
-                new int[]{ 0, 0, 1, 1, 1, 0, 0, 0 },
-                new int[]{ 0, 0, 1, 1, 1, 0, 0, 0 },
-                new int[]{ 0, 0, 1, 1, 1, 0, 0, 0 },
-                new int[]{ 0, 0, 0, 0, 0, 0, 0, 0 },
-                new int[]{ 0, 0, 0, 0, 0, 0, 0, 0 },
-                new int[]{ 0, 1, 1, 0, 1, 1, 1, 0 },
-                new int[]{ 0, 1, 1, 0, 1, 1, 1, 0 },
-                new int[]{ 0, 0, 0, 0, 1, 1, 1, 0 },
-                new int[]{ 0, 0, 0, 0, 0, 0, 0, 0 }
+                new[]{ 0, 0, 0, 0, 0, 0, 0, 0 },
+                new[]{ 0, 0, 0, 0, 0, 0, 0, 0 },
+                new[]{ 0, 0, 1, 1, 1, 0, 0, 0 },
+                new[]{ 0, 0, 1, 1, 1, 0, 0, 0 },
+                new[]{ 0, 0, 1, 1, 1, 0, 0, 0 },
+                new[]{ 0, 0, 0, 0, 0, 0, 0, 0 },
+                new[]{ 0, 0, 0, 0, 0, 0, 0, 0 },
+                new[]{ 0, 1, 1, 0, 1, 1, 1, 0 },
+                new[]{ 0, 1, 1, 0, 1, 1, 1, 0 },
+                new[]{ 0, 0, 0, 0, 1, 1, 1, 0 },
+                new[]{ 0, 0, 0, 0, 0, 0, 0, 0 }
             };
 
             Assert.Equal(expected: 3, actual: Solution.Start(arr));
         }
 
-        class maximum
+        private class Maximum
         {
             public Point TopLeft { get; set; }
             public Point BottomRight { get; set; }
             public int Size { get; set; }
         }
 
-
-        static class Solution
+        private static class Solution
         {
             public static int Start(int[][] arr)
             {
@@ -101,7 +100,7 @@ namespace leetcode.Tests.Algo
 
                 var max = 0;
 
-                var mStack = new Stack<maximum>();
+                var mStack = new Stack<Maximum>();
 
                 for (int i = 0; i < x; i++)
                 {
@@ -121,7 +120,7 @@ namespace leetcode.Tests.Algo
                         {
                             max = sizes[i, j];
 
-                            var m = new maximum
+                            var m = new Maximum
                             {
                                 BottomRight = new Point(i, j),
                                 TopLeft = new Point(i - (max - 1), j - (max - 1)),

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
 using Xunit;
 
-namespace leetcode.Tests
+namespace Algo.Tests
 {
-    public class URLify
+    public class UrLify
     {
         /*URLify: Write a method to replace all spaces in a string with '%20: You may assume that the string
 has sufficient space at the end to hold the additional characters, and that you are given the "true"
@@ -37,15 +35,12 @@ Output: "Mr%20John%20Smith"*/
                 for (int i = str.Length - 1; i >= 0; i--)
                 {
                     if (tail && str[i] == ' ') continue;
-                    else
-                    {
-                        tail = false;
+                    tail = false;
 
-                        if (str[i] == ' ')
-                            sb.Append("02%");
-                        else
-                            sb.Append(str[i]);
-                    }
+                    if (str[i] == ' ')
+                        sb.Append("02%");
+                    else
+                        sb.Append(str[i]);
                 }
 
                 return new string(sb.ToString().Reverse().ToArray());
@@ -71,7 +66,7 @@ Output: "Mr%20John%20Smith"*/
                 var trailingSpacesQty = 0;
                 for (int i = str.Length - 1; i >= 0; i--)
                 {
-                    if (str[i] == ' ') 
+                    if (str[i] == ' ')
                         trailingSpacesQty++;
                     else
                         break;
@@ -84,7 +79,7 @@ Output: "Mr%20John%20Smith"*/
                     if (str[i] == ' ')
                         spaceQty++;
                 }
-                
+
                 var arr = new char[newLength + (spaceQty * 2)];
 
                 var strPointer = 0;

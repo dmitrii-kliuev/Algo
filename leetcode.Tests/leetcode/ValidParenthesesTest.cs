@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class ValidParenthesesTest
     {
@@ -84,7 +82,7 @@ namespace leetcode.Tests.leetcode
             public bool IsValid(string x)
             {
                 var s = new Stack<char>();
-                var open = new char[] { '(', '{', '[' };
+                var open = new[] { '(', '{', '[' };
                 for (int i = 0; i < x.Length; i++)
                 {
                     var c = x[i];

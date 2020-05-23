@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests
+namespace Algo.Tests.leetcode
 {
     public class RotateImageTests
     {
@@ -11,14 +9,14 @@ namespace leetcode.Tests
         public void RotateImageSolutionTest()
         {
             // arrange
-            var input = new int[,]
+            var input = new[,]
             {
                 { 1, 2, 3},
                 { 4, 5, 6},
                 { 7, 8, 9}
             };
 
-            var output = new int[,]
+            var output = new[,]
             {
                 { 7, 4, 1 },
                 { 8, 5, 2 },
@@ -37,7 +35,7 @@ namespace leetcode.Tests
         public void RotateImageSolutionTest2()
         {
             // arrange
-            var input = new int[,]
+            var input = new[,]
             {
                 { 1,  2,  3,  4},
                 { 5,  6,  7,  8},
@@ -45,7 +43,7 @@ namespace leetcode.Tests
                 { 13, 14, 15, 16}
             };
 
-            var output = new int[,]
+            var output = new[,]
             {
                 {13, 9,  5, 1},
                 {14, 10, 6, 2 },

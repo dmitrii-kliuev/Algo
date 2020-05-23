@@ -1,26 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BubbleSort
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            var arr = new int[] { 5, 4, 3, 2, 1};
+            var arr = new[] { 5, 4, 3, 2, 1 };
             var bs = new BubbleSort();
             bs.SortIncrease(arr);
-            
+
             Console.WriteLine();
             Console.WriteLine();
             bs.SortDecrease(arr);
-            
+
             Console.ReadKey();
         }
-        
+
         public class BubbleSort
         {
 

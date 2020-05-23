@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace leetcode.Tests
+namespace Algo.Tests
 {
     public class OneOrZeroStringCahnge
     {
@@ -36,7 +36,7 @@ namespace leetcode.Tests
                         if (str1[i] != str2[i]) isEqual = false;
                     }
 
-                    if(isEqual)
+                    if (isEqual)
                         return true;
                 }
 
@@ -54,8 +54,8 @@ namespace leetcode.Tests
                     if (item < 0) lessThenZero++;
                 }
 
-                if ((greaterThenZero == 0 || greaterThenZero == 1) && 
-                    (lessThenZero == 0 || lessThenZero == 1) ) return true;
+                if ((greaterThenZero == 0 || greaterThenZero == 1) &&
+                    (lessThenZero == 0 || lessThenZero == 1)) return true;
 
                 return false;
             }

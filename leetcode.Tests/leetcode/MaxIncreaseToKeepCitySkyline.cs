@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class MaxIncreaseToKeepCitySkyline
     {
@@ -56,7 +53,7 @@ namespace leetcode.Tests.leetcode
         public void Test()
         {
             var expected = 35;
-            var arr = new int[][]
+            var arr = new[]
             {
                 new []{ 3, 0, 8, 4 },
                 new []{ 2, 4, 5, 7 },

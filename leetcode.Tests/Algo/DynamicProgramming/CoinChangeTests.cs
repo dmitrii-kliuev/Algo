@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.Algo.DynamicProgramming
 {
     // Good article https://www.geeksforgeeks.org/understanding-the-coin-change-problem-with-dynamic-programming/
 
@@ -18,13 +15,16 @@ namespace leetcode.Tests.leetcode
         public void Test(int[] coins, int amount, int expected)
         {
             var s = new Solution();
-            var actual = s.change(amount, coins);
-            Assert.Equal(expected, actual);
+            if (coins != null)
+            {
+                var actual = s.Change(amount, coins);
+                Assert.Equal(expected, actual);
+            }
         }
 
-        public class Solution
+        private class Solution
         {
-            public int change(int amount, int[] coins)
+            public int Change(int amount, int[] coins)
             {
                 var ways = new int[amount + 1];
                 ways[0] = 1;
@@ -33,7 +33,7 @@ namespace leetcode.Tests.leetcode
                 {
                     for (int j = 0; j < ways.Length; j++)
                     {
-                        if(j >= coin)
+                        if (j >= coin)
                         {
                             ways[j] = ways[j - coin] + ways[j];
                         }

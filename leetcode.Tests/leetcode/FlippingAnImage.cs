@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class FlippingAnImage
     {
@@ -27,9 +24,6 @@ namespace leetcode.Tests.leetcode
                 Expected    [[1,0,0],[0,1,0],[1,1,1]]
             */
 
-            var a0 = arr.GetLength(0);
-            var a1 = arr[0].GetLength(0);
-
             var s = new Solution();
 
             var arr1 = new[] { 1, 2, 3 };
@@ -37,7 +31,7 @@ namespace leetcode.Tests.leetcode
 
             var arr2 = new[] { 1, 2, 3, 4, 5, 6 };
             ArrayReverse(arr2);
-           
+
             s.FlipAndInvertImage(arr);
 
             s.FlipAndInvertImage(arr0);
@@ -45,12 +39,12 @@ namespace leetcode.Tests.leetcode
 
         public class Solution
         {
-            public int[][] FlipAndInvertImage(int[][] A)
+            public int[][] FlipAndInvertImage(int[][] a)
             {
-                for (int i = 0; i < A.GetLength(0); i++)
-                    ArrayReverse(A[i]);
+                for (int i = 0; i < a.GetLength(0); i++)
+                    ArrayReverse(a[i]);
 
-                return A;
+                return a;
             }
 
             public void ArrayReverse(int[] arr)
@@ -75,12 +69,12 @@ namespace leetcode.Tests.leetcode
 
                     if (left >= right)
                     {
-                        if(left == right)
+                        if (left == right)
                             arr[left] = arr[left] == 0 ? 1 : 0;
 
                         break;
                     }
-                        
+
                 }
             }
         }

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
-    public class DIStringMatch
+    public class DiStringMatch
     {
         [Theory]
         [InlineData("IDID", new[] { 0, 4, 1, 3, 2 })]
@@ -20,21 +17,21 @@ namespace leetcode.Tests.leetcode
 
         public class Solution
         {
-            public int[] DiStringMatch(string S)
+            public int[] DiStringMatch(string s)
             {
-                var res = new int[S.Length + 1];
+                var res = new int[s.Length + 1];
                 var left = 0;
-                var right = S.Length;
-                for (int i = 0; i < S.Length; i++)
+                var right = s.Length;
+                for (int i = 0; i < s.Length; i++)
                 {
-                    if (S[i] == 'I')
+                    if (s[i] == 'I')
                         res[i] = left++;
 
-                    if (S[i] == 'D')
+                    if (s[i] == 'D')
                         res[i] = right--;
                 }
 
-                res[S.Length] = left;
+                res[s.Length] = left;
 
                 return res;
             }

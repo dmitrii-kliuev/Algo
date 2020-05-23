@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuickSort
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             int[] array = { 3, 7, 4, 4, 6, 5, 8, 12, 19, 2, 0 };
             Console.WriteLine(string.Join(", ", array));
             QuickSort(array);
             Console.WriteLine(string.Join(", ", array));
-            
+
             Console.ReadKey();
         }
 

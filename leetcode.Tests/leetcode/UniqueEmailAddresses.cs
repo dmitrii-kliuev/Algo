@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class UniqueEmailAddresses
     {
         [Theory]
-        [InlineData(new string[] {
+        [InlineData(new[] {
             "test.email+alex@leetcode.com",
             "test.e.mail+bob.cathy@leetcode.com",
             "testemail+david@lee.tcode.com" }, 2)]
@@ -31,7 +29,7 @@ namespace leetcode.Tests.leetcode
                     parts[0] = parts[0].Substring(0, indexOfPlus);
                     parts[0] = parts[0].Replace(".", "");
                     var cleanMail = $"{parts[0]}@{parts[1]}";
-                    if(!uniq.Contains(cleanMail))
+                    if (!uniq.Contains(cleanMail))
                         uniq.Add(cleanMail);
                 }
 

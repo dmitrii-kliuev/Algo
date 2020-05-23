@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class ClimbingStairs
     {
@@ -34,7 +31,7 @@ namespace leetcode.Tests.leetcode
                 {
                     dp[i] = dp[i - 1] + dp[i - 2];
                 }
-                
+
                 return dp[n];
             }
         }

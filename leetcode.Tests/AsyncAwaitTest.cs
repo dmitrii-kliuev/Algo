@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-using System.Threading;
+﻿using System.Diagnostics;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace leetcode.Tests
+namespace Algo.Tests
 {
     public class AsyncAwaitTest
     {
@@ -25,13 +21,13 @@ namespace leetcode.Tests
 
         private async Task F1()
         {
-            await Task.Delay(4000).ConfigureAwait(false);
+            await Task.Delay(1000).ConfigureAwait(false);
             Debug.WriteLine("1");
         }
 
         private async Task F2()
         {
-            await Task.Delay(4000).ConfigureAwait(false);
+            await Task.Delay(1000).ConfigureAwait(false);
             Debug.WriteLine("2");
         }
     }

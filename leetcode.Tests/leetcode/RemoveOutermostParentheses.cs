@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class RemoveOutermostParentheses
     {
@@ -66,9 +64,9 @@ namespace leetcode.Tests.leetcode
             Assert.Equal(expected, actual);
         }
 
-        public class Solution
+        private class Solution
         {
-            public string RemoveOuterParentheses(string S)
+            public string RemoveOuterParentheses(string s)
             {
                 var stack = new Stack<char>();
                 var res = "";
@@ -76,7 +74,7 @@ namespace leetcode.Tests.leetcode
                 int closeQty = 0;
                 int qty = 0;
 
-                foreach (var p in S)
+                foreach (var p in s)
                 {
                     if (p == '(') openQty++;
                     if (p == ')') closeQty++;

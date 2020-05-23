@@ -2,15 +2,14 @@
 using System.Diagnostics;
 using Xunit;
 
-namespace leetcode.Tests.Algo.Graphs
+namespace Algo.Tests.Algo.Graphs
 {
-    public class Graph_BFS_DFS
+    public class GraphBfsDfs
     {
         [Fact]
         public void Test()
         {
-            double[,] arr = new double[,]
-            {
+            double[,] arr = {
                 {0, 1, 1, 0},
                 {0, 0, 1, 1},
                 {1, 0, 0, 1},
@@ -19,16 +18,15 @@ namespace leetcode.Tests.Algo.Graphs
 
             Graph g = new Graph(arr);
 
-            g.BFS(1);
+            g.Bfs(1);
 
-            //g.DFS(1);
+            g.Dfs(1);
         }
 
         [Fact]
         public void Graph_DFS_Non_recursive()
         {
-            double[,] arr = new double[,]
-            {
+            double[,] arr = {
                 {0, 1, 0, 0, 1},
                 {1, 0, 1, 1, 0},
                 {0, 1, 0, 0, 1},
@@ -52,23 +50,18 @@ namespace leetcode.Tests.Algo.Graphs
 
         private class Graph
         {
-            private readonly double[,] matrix;
-            private readonly int n;
-            public Graph(int n)
-            {
-                matrix = new double[n, n];
-                this.n = n;
-            }
+            private readonly double[,] _matrix;
+            private readonly int _n;
 
             public Graph(double[,] arr)
             {
-                matrix = arr;
-                this.n = arr.GetLength(0);
+                _matrix = arr;
+                _n = arr.GetLength(0);
             }
 
-            public void BFS(int from)
+            public void Bfs(int from)
             {
-                bool[] visited = new bool[n];
+                bool[] visited = new bool[_n];
                 Queue<int> turn = new Queue<int>();
                 turn.Enqueue(from);
                 visited[from] = true;
@@ -77,9 +70,10 @@ namespace leetcode.Tests.Algo.Graphs
                     int index = turn.Dequeue();
                     Debug.WriteLine(index);
 
-                    for (int i = 0; i < n; i++)
+                    for (int i = 0; i < _n; i++)
                     {
-                        if (matrix[index, i] != 0 && !visited[i])
+                        // ReSharper disable once CompareOfFloatsByEqualityOperator
+                        if (_matrix[index, i] != 0 && !visited[i])
                         {
                             visited[i] = true;
                             turn.Enqueue(i);
@@ -88,28 +82,29 @@ namespace leetcode.Tests.Algo.Graphs
                 }
             }
 
-            public void DFS(int from)
+            public void Dfs(int from)
             {
-                DFS(from, new bool[n]);
+                Dfs(from, new bool[_n]);
             }
 
-            private void DFS(int from, bool[] visited)
+            private void Dfs(int from, bool[] visited)
             {
                 // bool[] visited = new bool[n];
                 visited[from] = true;
 
                 Debug.WriteLine(from);
 
-                for (int i = 0; i < n; i++)
+                for (int i = 0; i < _n; i++)
                 {
-                    if (matrix[from, i] != 0 && !visited[i])
-                        DFS(i, visited);
+                    // ReSharper disable once CompareOfFloatsByEqualityOperator
+                    if (_matrix[from, i] != 0 && !visited[i])
+                        Dfs(i, visited);
                 }
             }
 
             public void DFS_Non_recursive(int from)
             {
-                bool[] visited = new bool[n];
+                bool[] visited = new bool[_n];
                 Stack<int> stack = new Stack<int>();
 
                 stack.Push(from);
@@ -119,9 +114,10 @@ namespace leetcode.Tests.Algo.Graphs
                     int index = stack.Pop();
                     Debug.WriteLine(index);
 
-                    for (int i = 0; i < n; i++)
+                    for (int i = 0; i < _n; i++)
                     {
-                        if (matrix[index, i] != 0 && !visited[i])
+                        // ReSharper disable once CompareOfFloatsByEqualityOperator
+                        if (_matrix[index, i] != 0 && !visited[i])
                         {
                             stack.Push(i);
                             visited[i] = true;

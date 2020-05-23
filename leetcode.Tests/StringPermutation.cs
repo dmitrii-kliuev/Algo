@@ -1,26 +1,26 @@
 ﻿using System.Diagnostics;
 using Xunit;
 
-namespace leetcode.Tests
+namespace Algo.Tests
 {
     public class StringPermutation
     {
         [Fact]
-        public void test()
+        public void Test()
         {
             Solution.Start("abc");
         }
 
         public class Solution
         {
-            static int count = 0;
+            private static int _count;
             public static void Start(string str)
             {
                 string input = str;
 
                 Permutations(input.ToLower().ToCharArray(), 0, input.Length - 1);
 
-                Debug.WriteLine("Total Permutations :{0}", count);
+                Debug.WriteLine("Total Permutations :{0}", _count);
             }
 
 
@@ -41,7 +41,7 @@ namespace leetcode.Tests
                 if (left == right)
                 {
                     Debug.WriteLine(new string(input));
-                    count++;
+                    _count++;
 
                 }
                 else

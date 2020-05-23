@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class MergekSortedListsTest
     {
         [Theory]
-        [InlineData(new int[] { 1, 4, 5 }, new int[] { 2, 3, 4 }, new int[] { 2, 6 })]
+        [InlineData(new[] { 1, 4, 5 }, new[] { 2, 3, 4 }, new[] { 2, 6 })]
         public void MergeKsortedLists(int[] arr1, int[] arr2, int[] arr3)
         {
             var list = new ListNode[3];
@@ -17,15 +14,15 @@ namespace leetcode.Tests.leetcode
             list[2] = ListNode.ArrayToList(arr3);
 
             var s = new Solution();
-            var insertRes = s.Insert(ListNode.ArrayToList(arr1), 2);
+            s.Insert(ListNode.ArrayToList(arr1), 2);
             //var insertRes1 = Insert(FillList(arr1), 0);
-            var insertRes2 = s.Insert(ListNode.ArrayToList(arr1), 6);
+            s.Insert(ListNode.ArrayToList(arr1), 6);
 
-            var insertRes3 = s.Insert(ListNode.ArrayToList(new int[] { 1, 2, 4, 7, 14, 25, 45 }), 6);
-            var insertRes4 = s.Insert(ListNode.ArrayToList(new int[] { 1, 2, 4, 7, 14, 25, 45 }), 0);
-            var insertRes5 = s.Insert(ListNode.ArrayToList(new int[] { 1, 2, 4, 7, 14, 25, 45 }), 47);
-            
-            var res = s.MergeKLists(list);
+            s.Insert(ListNode.ArrayToList(new[] { 1, 2, 4, 7, 14, 25, 45 }), 6);
+            s.Insert(ListNode.ArrayToList(new[] { 1, 2, 4, 7, 14, 25, 45 }), 0);
+            s.Insert(ListNode.ArrayToList(new[] { 1, 2, 4, 7, 14, 25, 45 }), 47);
+
+            s.MergeKLists(list);
         }
 
         public class Solution
@@ -65,8 +62,10 @@ namespace leetcode.Tests.leetcode
 
                 if (val < node.val)
                 {
-                    var newHead = new ListNode(val);
-                    newHead.next = node;
+                    var newHead = new ListNode(val)
+                    {
+                        next = node
+                    };
                     return newHead;
                 }
 
@@ -77,12 +76,14 @@ namespace leetcode.Tests.leetcode
                     {
                         var prev = node;
                         var next = node.next;
-                        prev.next = new ListNode(val);
-                        prev.next.next = next;
+                        prev.next = new ListNode(val)
+                        {
+                            next = next
+                        };
                         return root;
                     }
 
-                    
+
                     node = node.next;
                 }
 
@@ -92,6 +93,6 @@ namespace leetcode.Tests.leetcode
             }
         }
 
-        
+
     }
 }

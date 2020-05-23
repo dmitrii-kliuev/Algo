@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Xunit;
 
-namespace leetcode.Tests
+namespace Algo.Tests.leetcode
 {
     public class PlusOneTests
     {
-        [Xunit.Theory]
-        [InlineData(new int[] { 1, 2, 3 }, new int[] { 1, 2, 4 })]
-        [InlineData(new int[] { 1, 1, 9, 9 }, new int[] { 1, 2, 0, 0 })]
-        [InlineData(new int[] { 9 }, new int[] { 1, 0 })]
-        [InlineData(new int[] { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 }, new int[] { 9, 8, 7, 6, 5, 4, 3, 2, 1, 1 })]
+        [Theory]
+        [InlineData(new[] { 1, 2, 3 }, new[] { 1, 2, 4 })]
+        [InlineData(new[] { 1, 1, 9, 9 }, new[] { 1, 2, 0, 0 })]
+        [InlineData(new[] { 9 }, new[] { 1, 0 })]
+        [InlineData(new[] { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 }, new[] { 9, 8, 7, 6, 5, 4, 3, 2, 1, 1 })]
         public void PlusOneSolutionTest(int[] input, int[] output)
         {
             // arrange
@@ -39,7 +37,7 @@ namespace leetcode.Tests
                         continue;
                     }
 
-                    if (digits[i] + 1 > 9 && i == 0 && !isAdded)
+                    if (digits[i] + 1 > 9 && i == 0)
                     {
                         tmp.Add(0);
                         tmp.Add(1);
@@ -52,11 +50,8 @@ namespace leetcode.Tests
                         continue;
                     }
 
-                    if (!isAdded)
-                    {
-                        tmp.Add(digits[i] + 1);
-                        isAdded = true;
-                    }
+                    tmp.Add(digits[i] + 1);
+                    isAdded = true;
                 }
 
                 tmp.Reverse();

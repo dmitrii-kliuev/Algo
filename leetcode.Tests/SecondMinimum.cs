@@ -1,22 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests
+namespace Algo.Tests
 {
     public class SecondMinimum
     {
         [Theory]
-        [InlineData(new int[] { 10, 15, 1, 5, 20, 2 }, 2)]
+        [InlineData(new[] { 10, 15, 1, 5, 20, 2 }, 2)]
         //[InlineData(new int[] { 10, 15, 2, 5, 20, 1 }, 2)]
-        public void test(int[] arr, int expected)
+        public void Test(int[] arr, int expected)
         {
             var actual = Solution.Start(arr);
             Assert.Equal(expected, actual);
         }
 
-        static class Solution
+        private static class Solution
         {
             public static int Start(int[] arr)
             {
@@ -30,7 +27,7 @@ namespace leetcode.Tests
                         second = first;
                         first = arr[i];
                     }
-                    else if(arr[i] < second && arr[i] != first)
+                    else if (arr[i] < second && arr[i] != first)
                     {
                         second = arr[i];
                     }

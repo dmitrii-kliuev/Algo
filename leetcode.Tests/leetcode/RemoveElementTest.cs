@@ -1,21 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class RemoveElementTest
     {
         [Theory]
-        [InlineData(new int[] { 3, 2, 2, 3 }, 3, new[] { 2, 2 }, 2)]
-        [InlineData(new int[] { 0, 1, 2, 2, 3, 0, 4, 2 }, 2, new[] { 0, 1, 3, 0, 4 }, 5)]
-        [InlineData(new int[] { 1 }, 1, new int[0], 0)]
-        [InlineData(new int[] { 1, 2 }, 1, new[] { 2 }, 1)]
-        [InlineData(new int[] { 2, 1 }, 1, new[] { 2 }, 1)]
-        [InlineData(new int[] { 2, 2 }, 1, new[] { 2, 2 }, 2)]
-        [InlineData(new int[] { 3, 3 }, 3, new int[0], 0)]
-        [InlineData(new int[] { 2, 2, 3 }, 2, new[] { 3 }, 1)]
+        [InlineData(new[] { 3, 2, 2, 3 }, 3, new[] { 2, 2 }, 2)]
+        [InlineData(new[] { 0, 1, 2, 2, 3, 0, 4, 2 }, 2, new[] { 0, 1, 3, 0, 4 }, 5)]
+        [InlineData(new[] { 1 }, 1, new int[0], 0)]
+        [InlineData(new[] { 1, 2 }, 1, new[] { 2 }, 1)]
+        [InlineData(new[] { 2, 1 }, 1, new[] { 2 }, 1)]
+        [InlineData(new[] { 2, 2 }, 1, new[] { 2, 2 }, 2)]
+        [InlineData(new[] { 3, 3 }, 3, new int[0], 0)]
+        [InlineData(new[] { 2, 2, 3 }, 2, new[] { 3 }, 1)]
         public void RemoveElementSolution(int[] nums, int val, int[] expectedArr, int expectedLen)
         {
             var s = new Solution();

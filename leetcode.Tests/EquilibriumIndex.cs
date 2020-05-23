@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests
+namespace Algo.Tests
 {
     public class EquilibriumIndex
     {
@@ -58,17 +55,17 @@ namespace leetcode.Tests
          */
 
         [Theory]
-        [InlineData(new int[] { 1, 1, 4, 5, 1, 6, 2, 3 }, 4)]
-        [InlineData(new int[] { 1, 2, 4, 5, 1, 2, 2, 2 }, 3)]
-        [InlineData(new int[] { 1, 0, 0, 0, 1 }, 1)]
-        public void test(int[] arr, int expected)
+        [InlineData(new[] { 1, 1, 4, 5, 1, 6, 2, 3 }, 4)]
+        [InlineData(new[] { 1, 2, 4, 5, 1, 2, 2, 2 }, 3)]
+        [InlineData(new[] { 1, 0, 0, 0, 1 }, 1)]
+        public void Test(int[] arr, int expected)
         {
             var s = new Solution();
             var actual = s.EqiIndex(arr);
             Assert.Equal(expected, actual);
         }
 
-        class Solution
+        private class Solution
         {
             public int EqiIndex(int[] arr)
             {

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class SortArrayByParity
     {
@@ -33,7 +30,7 @@ namespace leetcode.Tests.leetcode
                 {
                     evenPart = false;
                     oddPart = true;
-                };
+                }
 
                 if (oddPart && a % 2 == 0)
                 {
@@ -47,27 +44,27 @@ namespace leetcode.Tests.leetcode
 
         public class Solution
         {
-            public int[] SortArrayByParity(int[] A)
+            public int[] SortArrayByParity(int[] a)
             {
                 var tailQty = 0;
                 var tailIdx = 0;
-                for (int i = 0; i < A.Length; i++)
+                for (int i = 0; i < a.Length; i++)
                 {
-                    if (A[i] % 2 != 0)
+                    if (a[i] % 2 != 0)
                     {
-                        tailIdx = FindTail(A, tailIdx);
+                        tailIdx = FindTail(a, tailIdx);
                         if (i < tailIdx)
                         {
-                            Swap(A, i, tailIdx);
+                            Swap(a, i, tailIdx);
                             tailQty++;
                         }
                     }
 
-                    if (i + tailQty == A.Length - 1)
+                    if (i + tailQty == a.Length - 1)
                         break;
                 }
 
-                return A;
+                return a;
             }
 
             private int FindTail(int[] arr, int tailIdx)
@@ -90,55 +87,55 @@ namespace leetcode.Tests.leetcode
 
         public class SolutionFast
         {
-            public int[] SortArrayByParity(int[] A)
+            public int[] SortArrayByParity(int[] a)
             {
                 int left = 0;
-                int right = A.Length - 1;
+                int right = a.Length - 1;
 
                 while (true)
                 {
-                    while (left < right && A[left] % 2 == 0)
+                    while (left < right && a[left] % 2 == 0)
                     {
                         left++;
                     }
-                    while (left < right && A[right] % 2 != 0)
+                    while (left < right && a[right] % 2 != 0)
                     {
                         right--;
                     }
-                    int temp = A[left];
-                    A[left] = A[right];
-                    A[right] = temp;
+                    int temp = a[left];
+                    a[left] = a[right];
+                    a[right] = temp;
 
                     if (left >= right)
                     {
                         break;
                     }
                 }
-                return A;
+                return a;
             }
         }
 
         public class SolutionSlow
         {
-            public int[] SortArrayByParity(int[] A)
+            public int[] SortArrayByParity(int[] a)
             {
-                var res = new int[A.Length];
+                var res = new int[a.Length];
 
                 var pos = 0;
-                for (int i = 0; i < A.Length; i++)
+                for (int i = 0; i < a.Length; i++)
                 {
-                    if (A[i] % 2 == 0)
+                    if (a[i] % 2 == 0)
                     {
-                        res[pos] = A[i];
+                        res[pos] = a[i];
                         pos++;
                     }
                 }
 
-                for (int i = 0; i < A.Length; i++)
+                for (int i = 0; i < a.Length; i++)
                 {
-                    if (A[i] % 2 != 0)
+                    if (a[i] % 2 != 0)
                     {
-                        res[pos] = A[i];
+                        res[pos] = a[i];
                         pos++;
                     }
                 }

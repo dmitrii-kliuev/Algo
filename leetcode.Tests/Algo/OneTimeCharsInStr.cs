@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace leetcode.Tests.Algo
+namespace Algo.Tests.Algo
 {
     public class OneTimeCharsInStr
     {
@@ -15,7 +15,7 @@ namespace leetcode.Tests.Algo
             Assert.Equal(expected, actual);
         }
 
-        static class Solution
+        private static class Solution
         {
             public static bool IsOnlyOnce(string str)
             {

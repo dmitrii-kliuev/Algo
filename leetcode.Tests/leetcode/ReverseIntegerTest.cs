@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class ReverseIntegerTest
     {
-        [Xunit.Theory]
+        [Theory]
         [InlineData(123, 321)]
         [InlineData(-123, -321)]
         [InlineData(1534236469, 0)]

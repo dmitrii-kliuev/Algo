@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class CountingBits
     {
@@ -31,12 +28,12 @@ namespace leetcode.Tests.leetcode
 
         [Theory]
         //[InlineData(2, new int[] { 0, 1, 1 })]
-        [InlineData(5, new int[] { 0, 1, 1, 2, 1, 2 })]
+        [InlineData(5, new[] { 0, 1, 1, 2, 1, 2 })]
         public void Test(int num, int[] expected)
         {
             var s = new Solution();
-            var qwe0 = CountOnes0(5);
-            var qwe1 = CountOnes1(232);
+            CountOnes0(5);
+            CountOnes1(232);
 
             var actual = s.CountBits(num);
             Assert.Equal(expected, actual);

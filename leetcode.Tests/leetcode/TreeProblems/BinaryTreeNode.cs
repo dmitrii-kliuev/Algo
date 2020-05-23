@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace leetcode.Tests.leetcode.TreeProblems
+namespace Algo.Tests.leetcode.TreeProblems
 {
     public class BinaryTreeNode<T> : IComparable<T> where T : IComparable<T>
     {

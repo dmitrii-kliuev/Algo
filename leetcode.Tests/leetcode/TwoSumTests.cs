@@ -1,9 +1,7 @@
-﻿using Xunit;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using Xunit;
 
-namespace leetcode.Tests
+namespace Algo.Tests.leetcode
 {
     /*Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 
@@ -18,10 +16,10 @@ return [0, 1].*/
 
     public class TwoSumTests
     {
-        [Xunit.Theory]
-        [InlineData(new int[] { 2, 7, 11, 15 }, 9, new int[] { 0, 1 })]
-        [InlineData(new int[] { 2, 11, 7, 15 }, 9, new int[] { 0, 2 })]
-        [InlineData(new int[] { 3, 3 }, 6, new int[] { 0, 1 })]
+        [Theory]
+        [InlineData(new[] { 2, 7, 11, 15 }, 9, new[] { 0, 1 })]
+        [InlineData(new[] { 2, 11, 7, 15 }, 9, new[] { 0, 2 })]
+        [InlineData(new[] { 3, 3 }, 6, new[] { 0, 1 })]
         public void TwoSumTest(int[] nums, int target, int[] trueRes)
         {
             // arrange
@@ -44,7 +42,7 @@ return [0, 1].*/
                 {
                     for (int j = i + 1; j < nums.Length; j++)
                     {
-                        if(nums[i] + nums[j] == target)
+                        if (nums[i] + nums[j] == target)
                         {
                             result[0] = i;
                             result[1] = j;
@@ -69,14 +67,15 @@ return [0, 1].*/
                 {
                     if (dict.ContainsKey(target - nums[i]))
                     {
-                        return new int[] { dict[target - nums[i]], i };
+                        return new[] { dict[target - nums[i]], i };
                     }
-                    else if (!dict.ContainsKey(nums[i]))
+
+                    if (!dict.ContainsKey(nums[i]))
                     {
                         dict.Add(nums[i], i);
                     }
                 }
-                return new int[] { -1, -1 };
+                return new[] { -1, -1 };
             }
         }
         #endregion

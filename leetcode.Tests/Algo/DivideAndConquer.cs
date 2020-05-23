@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.Algo
+namespace Algo.Tests.Algo
 {
     public class DivideAndConquer
     {

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class FibonacciNumber
     {
@@ -23,13 +19,13 @@ namespace leetcode.Tests.leetcode
 
         public class Solution
         {
-            public int Fib(int N)
+            public int Fib(int n)
             {
-                if (N == 1) return 1;
+                if (n == 1) return 1;
                 var res = 0;
                 var prevL = 0;
                 var prevR = 1;
-                for (int i = 0; i < N - 1; i++)
+                for (int i = 0; i < n - 1; i++)
                 {
                     res = prevL + prevR;
                     prevL = prevR;

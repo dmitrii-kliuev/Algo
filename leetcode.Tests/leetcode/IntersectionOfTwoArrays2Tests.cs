@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
-using Assert = Xunit.Assert;
 
-namespace leetcode.Tests
+namespace Algo.Tests.leetcode
 {
     public class IntersectionOfTwoArrays2Tests
     {
@@ -31,7 +29,7 @@ namespace leetcode.Tests
             you cannot load all elements into the memory at once?
          */
 
-        [Xunit.Theory]
+        [Theory]
         [InlineData(new[] { 1, 2, 2, 1 }, new[] { 2, 2 }, new[] { 2, 2 })]
         [InlineData(new[] { 4, 9, 5 }, new[] { 9, 4, 9, 8, 4 }, new[] { 4, 9 })]
         public void SolutionTest(int[] nums1, int[] nums2, int[] expected)

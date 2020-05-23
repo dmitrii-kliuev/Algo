@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class SelfDividingNumbers
     {
@@ -37,7 +35,7 @@ namespace leetcode.Tests.leetcode
                         tmp /= 10;
                     }
 
-                    if(isSelfDeviding)
+                    if (isSelfDeviding)
                         res.Add(i);
                 }
 

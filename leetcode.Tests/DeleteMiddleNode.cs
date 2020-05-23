@@ -1,7 +1,7 @@
-﻿using leetcode.Tests.leetcode;
+﻿using Algo.Tests.leetcode;
 using Xunit;
 
-namespace leetcode.Tests
+namespace Algo.Tests
 {
     public class DeleteMiddleNode
     {
@@ -36,7 +36,7 @@ namespace leetcode.Tests
             Assert.Equal(expected, actual);
         }
 
-        static class Solution
+        private static class Solution
         {
             public static void Start(ListNode current)
             {

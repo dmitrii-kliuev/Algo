@@ -1,24 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MergeSort
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             //MergeTest();
 
-            var arr = new [] {3, 1, 6, 7, 2, 4, 8, 9, 5, 10, 11};
+            var arr = new[] { 3, 1, 6, 7, 2, 4, 8, 9, 5, 10, 11 };
             MergeSort(arr);
         }
 
         private static void MergeSort(int[] arr)
         {
-            if(arr.Length <= 1)
+            if (arr.Length <= 1)
                 return;
 
             var leftSize = arr.Length / 2;
@@ -36,7 +32,7 @@ namespace MergeSort
             Merge(arr, left, right);
         }
 
-        static void Merge(int[] items, int[] left, int[] right)
+        private static void Merge(int[] items, int[] left, int[] right)
         {
             var leftIndex = 0;
             var rightIndex = 0;
@@ -48,11 +44,11 @@ namespace MergeSort
                 {
                     items[targetIndex] = right[rightIndex++];
                 }
-                else if(rightIndex >= right.Length)
+                else if (rightIndex >= right.Length)
                 {
                     items[targetIndex] = left[leftIndex++];
                 }
-                else if(left[leftIndex] < right[rightIndex])
+                else if (left[leftIndex] < right[rightIndex])
                 {
                     items[targetIndex] = left[leftIndex++];
                 }
@@ -66,7 +62,7 @@ namespace MergeSort
             }
         }
 
-        static void MergeTest()
+        public static void MergeTest()
         {
             //var left = new[] {1, 3, 6, 7};
             //var right = new[] {2, 4, 8, 9, 10};

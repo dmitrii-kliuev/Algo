@@ -1,11 +1,11 @@
 ﻿using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class SearchInsertPositionTest
     {
         [Theory]
-        [InlineData(new []{ 1, 3, 5, 6 }, 5, 2)]
+        [InlineData(new[] { 1, 3, 5, 6 }, 5, 2)]
         [InlineData(new[] { 1, 3, 5, 6 }, 2, 1)]
         [InlineData(new[] { 1, 3, 5, 6 }, 7, 4)]
         [InlineData(new[] { 1, 3, 5, 6 }, 0, 0)]

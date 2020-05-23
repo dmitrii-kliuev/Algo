@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Win32.SafeHandles;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.Algo
+namespace Algo.Tests.Algo
 {
     public class SelectionSort
     {
@@ -24,7 +20,7 @@ namespace leetcode.Tests.Algo
             public int[] Sort(int[] arr)
             {
                 if (arr.Length == 0) return arr;
-                
+
                 for (int i = 0; i < arr.Length - 1; i++)
                 {
                     int min = arr[i];
@@ -40,7 +36,7 @@ namespace leetcode.Tests.Algo
 
                     Swap(arr, i, minIdx);
                 }
-                
+
                 return arr;
             }
 

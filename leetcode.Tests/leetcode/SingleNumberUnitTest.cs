@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests
+namespace Algo.Tests.leetcode
 {
     public class SingleNumberUnitTest
     {
@@ -12,7 +8,7 @@ namespace leetcode.Tests
         //[InlineData(new int[] {2, 2, 1 }, 1)]
         //[InlineData(new int[] { 4, 1, 2, 1, 2 }, 4)]
         //[InlineData(new int[] { 1, 0, 1 }, 0)]
-        [InlineData(new int[] { 1, 3, 1, -1, 3 }, -1)]
+        [InlineData(new[] { 1, 3, 1, -1, 3 }, -1)]
         public void SingleNumber_SulutionTest(int[] nums, int target)
         {
             // arrange
@@ -42,7 +38,8 @@ namespace leetcode.Tests
                         {
                             break;
                         }
-                        else if (j == nums.Length - 1 && curr != nums[j])
+
+                        if (j == nums.Length - 1 && curr != nums[j])
                             return curr;
                     }
                 }

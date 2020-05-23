@@ -1,21 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AVL_Balanced_BinaryTree
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             // 56:00
         }
 
-        public class AvlBinaryTree<T>: IEnumerable<T> where T : IComparable<T>
+        public class AvlBinaryTree<T> : IEnumerable<T> where T : IComparable<T>
         {
-            private int _count;
             private AvlTreeNode<T> _root;
 
             //public void PreOrderTraversal()
@@ -104,8 +100,6 @@ namespace AVL_Balanced_BinaryTree
                 {
                     AddTo(_root, value);
                 }
-
-                _count++;
             }
 
             private void AddTo(AvlTreeNode<T> node, T value)
@@ -138,8 +132,7 @@ namespace AVL_Balanced_BinaryTree
 
             public bool Remove(T value)
             {
-                AvlTreeNode<T> parent;
-                var itemToRemove = FindWithParent(value, out parent);
+                var itemToRemove = FindWithParent(value, out AvlTreeNode<T> parent);
 
                 if (itemToRemove == null)
                     return false;
@@ -212,7 +205,6 @@ namespace AVL_Balanced_BinaryTree
 
                 }
 
-                _count--;
                 return true;
             }
 

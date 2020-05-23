@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
+﻿using System.Diagnostics;
 using Xunit;
 
-namespace leetcode.Tests.Algo
+namespace Algo.Tests.leetcode
 {
     public class FizzBuzzTest
     {
@@ -30,5 +27,5 @@ namespace leetcode.Tests.Algo
         }
     }
 
-   
+
 }

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class PeakIndexInAMountainArray
     {
@@ -18,26 +14,26 @@ namespace leetcode.Tests.leetcode
             Assert.Equal(expected, actual);
         }
 
-        public class Solution
+        private class Solution
         {
-            public int PeakIndexInMountainArray(int[] A)
+            public int PeakIndexInMountainArray(int[] a)
             {
                 var res = 0;
-                if (A.Length < 3) return res;
+                if (a.Length < 3) return res;
 
-                var prev = A[0];
-                for (int i = 1; i < A.Length; i++)
+                var prev = a[0];
+                for (int i = 1; i < a.Length; i++)
                 {
-                    if (prev < A[i])
+                    if (prev < a[i])
                     {
                         res = i;
                     }
-                    else if (res != 0 && prev < A[i])
+                    else if (res != 0 && prev < a[i])
                     {
                         return 0;
                     }
 
-                    prev = A[i];
+                    prev = a[i];
                 }
 
                 return res;

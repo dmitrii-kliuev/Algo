@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class DesignHashMapTest
     {
@@ -50,9 +49,9 @@ Please do not use the built-in HashMap library.*/
 
         public class MyHashMap
         {
-            private LinkedList<HashTableItem>[] _hashTable;
+            private readonly LinkedList<HashTableItem>[] _hashTable;
 
-            private int _capacity = 1000000;
+            private readonly int _capacity = 1000000;
             /** Initialize your data structure here. */
             public MyHashMap()
             {
@@ -65,7 +64,7 @@ Please do not use the built-in HashMap library.*/
                 var hash = key.GetHashCode() % _capacity;
 
                 var item = new HashTableItem(key, value);
-                _hashTable[hash] = new LinkedList<HashTableItem> {item};
+                _hashTable[hash] = new LinkedList<HashTableItem> { item };
             }
 
             /** Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key */
@@ -280,7 +279,7 @@ Please do not use the built-in HashMap library.*/
             }
         }
 
-        /**
+        /*
          * Your MyHashMap object will be instantiated and called as such:
          * MyHashMap obj = new MyHashMap();
          * obj.Put(key,value);

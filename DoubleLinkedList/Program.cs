@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.SqlServer.Server;
 
 namespace DoubleLinkedList
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             var inst = new DoubleLinkedList<int>();
             inst.AddFirst(5);
@@ -180,9 +174,9 @@ namespace DoubleLinkedList
                 {
                     if (current.Value.Equals(value))
                     {
-                        if(current.Prev == null)
+                        if (current.Prev == null)
                             RemoveFirst();
-                        else if(current.Next == null)
+                        else if (current.Next == null)
                             RemoveLast();
                         else
                         {
@@ -191,7 +185,7 @@ namespace DoubleLinkedList
 
                             prev.Next = next;
                             next.Prev = prev;
-                            
+
                             Count--;
                         }
                     }

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class ToLowerCase
     {
@@ -26,7 +23,7 @@ namespace leetcode.Tests.leetcode
                 var distance = 'a' - 'A';
                 for (int i = 0; i < str.Length; i++)
                 {
-                    
+
                     if (str[i] >= 'A' && str[i] <= 'Z')
                     {
                         chars[i] = (char)(str[i] + distance);

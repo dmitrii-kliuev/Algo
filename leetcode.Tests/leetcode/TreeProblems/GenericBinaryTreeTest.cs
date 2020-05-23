@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using Xunit;
 
-namespace leetcode.Tests.leetcode.TreeProblems
+namespace Algo.Tests.leetcode.TreeProblems
 {
     public class GenericBinaryTreeTest
     {
@@ -58,10 +58,9 @@ namespace leetcode.Tests.leetcode.TreeProblems
             instance.Add(10); //
             instance.Add(15); //
 
-            BinaryTreeNode<int> parent;
-            var res = instance.FindWithParent(12, out parent);
+            instance.FindWithParent(12, out _);
 
-            var res1 = instance.FindWithParent(2, out parent);
+            instance.FindWithParent(2, out _);
 
             instance.PreOrderTraversal();
             instance.PostOrderTraversal();
@@ -119,9 +118,8 @@ namespace leetcode.Tests.leetcode.TreeProblems
             instance.Remove(10);
         }
 
-        public class BinaryTree<T> where T : IComparable<T>
+        private class BinaryTree<T> where T : IComparable<T>
         {
-            private int _count;
             private BinaryTreeNode<T> _root;
 
             public void PreOrderTraversal()
@@ -213,8 +211,6 @@ namespace leetcode.Tests.leetcode.TreeProblems
                 {
                     AddTo(_root, value);
                 }
-
-                _count++;
             }
 
             private void AddTo(BinaryTreeNode<T> node, T value)
@@ -245,13 +241,11 @@ namespace leetcode.Tests.leetcode.TreeProblems
                 }
             }
 
-            public bool Remove(T value)
+            public void Remove(T value)
             {
-                BinaryTreeNode<T> parent;
-                var itemToRemove = FindWithParent(value, out parent);
+                var itemToRemove = FindWithParent(value, out BinaryTreeNode<T> parent);
 
-                if (itemToRemove == null)
-                    return false;
+                if (itemToRemove == null) return;
 
                 // удаляемый узел не имеет правого потомка
                 if (itemToRemove.Right == null)
@@ -320,9 +314,6 @@ namespace leetcode.Tests.leetcode.TreeProblems
                     }
 
                 }
-
-                _count--;
-                return true;
             }
         }
 

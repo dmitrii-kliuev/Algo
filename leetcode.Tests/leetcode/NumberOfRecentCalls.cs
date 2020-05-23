@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class NumberOfRecentCalls
     {
@@ -51,13 +50,14 @@ Keep a queue of the most recent calls in increasing order of t. When we see a ne
         {
             var rc = new RecentCounter();
 
-            var lst = new List<int>();
-
-            lst.Add(rc.Ping(1));
-            lst.Add(rc.Ping(100));
-            lst.Add(rc.Ping(3001));
-            lst.Add(rc.Ping(3002));
-
+            var ints = new List<int>
+            {
+                rc.Ping(1),
+                rc.Ping(100),
+                rc.Ping(3001),
+                rc.Ping(3002)
+            };
+            Debug.WriteLine(ints.Count);
 
             /*
              ["RecentCounter","ping","ping","ping","ping","ping"]
@@ -68,36 +68,34 @@ Keep a queue of the most recent calls in increasing order of t. When we see a ne
 
             rc = new RecentCounter();
 
-            lst = new List<int>();
-
-            lst.Add(rc.Ping(642));
-            lst.Add(rc.Ping(1849));
-            lst.Add(rc.Ping(4921));
-            lst.Add(rc.Ping(5936));
-            lst.Add(rc.Ping(5957));
+            var list = new List<int>
+            {
+                rc.Ping(642),
+                rc.Ping(1849),
+                rc.Ping(4921),
+                rc.Ping(5936),
+                rc.Ping(5957)
+            };
+            Debug.WriteLine(list.Count);
         }
 
-        class RecentCounter
+        private class RecentCounter
         {
-            Queue<int> q = new Queue<int>();
-            public RecentCounter()
-            {
-
-            }
+            private readonly Queue<int> _q = new Queue<int>();
 
             public int Ping(int t)
             {
-                q.Enqueue(t);
+                _q.Enqueue(t);
 
-                while(q.Peek() < t - 3000)
-                    q.Dequeue();
+                while (_q.Peek() < t - 3000)
+                    _q.Dequeue();
 
 
-                return q.Count;
+                return _q.Count;
             }
         }
 
-        /**
+        /*
          * Your RecentCounter object will be instantiated and called as such:
          * RecentCounter obj = new RecentCounter();
          * int param_1 = obj.ping(t);

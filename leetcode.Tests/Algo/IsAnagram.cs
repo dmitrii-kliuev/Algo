@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Xunit;
 
-namespace leetcode.Tests.Algo
+namespace Algo.Tests.Algo
 {
     public class IsAnagram
     {
@@ -16,7 +16,7 @@ namespace leetcode.Tests.Algo
             Assert.Equal(expected, actual);
         }
 
-        static class Solution
+        private static class Solution
         {
             internal static bool Start(string first, string second)
             {

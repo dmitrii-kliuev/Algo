@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class ImplementStackUsingQueues
     {
@@ -13,8 +11,8 @@ namespace leetcode.Tests.leetcode
             var s = new MyStack<int>();
             s.Push(4);
             s.Push(1);
-            var p1 = s.Pop();
-            var p4 = s.Pop();
+            s.Pop();
+            s.Pop();
         }
     }
 
@@ -28,13 +26,11 @@ namespace leetcode.Tests.leetcode
             public ListNode(T x) { val = x; }
         }
 
-        private int _size = 0;
         private ListNode _root;
 
         /** Initialize your data structure here. */
         public MyStack()
         {
-            _size = 0;
             _root = null;
         }
 
@@ -42,7 +38,6 @@ namespace leetcode.Tests.leetcode
         public virtual void Push(T x)
         {
             var newItem = new ListNode(x) { next = _root };
-            _size++;
             _root = newItem;
         }
 
@@ -53,7 +48,6 @@ namespace leetcode.Tests.leetcode
             {
                 var res = _root.val;
                 _root = _root.next;
-                _size--;
                 return res;
             }
 
@@ -79,7 +73,7 @@ namespace leetcode.Tests.leetcode
         }
     }
 
-    /**
+    /*
      * Your MyStack object will be instantiated and called as such:
      * MyStack obj = new MyStack();
      * obj.Push(x);

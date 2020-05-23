@@ -1,10 +1,8 @@
-﻿using leetcode.Tests.leetcode;
+﻿using Algo.Tests.leetcode;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.CrackingTheCodingInterview
+namespace Algo.Tests.CrackingTheCodingInterview
 {
     public class StackMin
     {
@@ -17,6 +15,8 @@ namespace leetcode.Tests.CrackingTheCodingInterview
         public void StackMitTest()
         {
             var s = new MyStackWithMin<int>();
+            Assert.Throws<Exception>(() => s.Min());
+
             s.Push(5);
             Assert.Equal(5, s.Min().Min);
             s.Push(10);

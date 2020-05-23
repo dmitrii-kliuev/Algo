@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.Algo
+namespace Algo.Tests.Algo
 {
     public class FactorialTest
     {
@@ -16,7 +13,7 @@ namespace leetcode.Tests.Algo
         public void Test(int num, int expected)
         {
             var s = new Solution();
-            var res = s.FactTest();
+            s.FactTest();
 
             var actual = s.Fact(num);
             Assert.Equal(expected, actual);
@@ -44,12 +41,12 @@ namespace leetcode.Tests.Algo
             {
                 return 4 * Fact3();
             }
-            
+
             public int Fact3()
             {
                 return 3 * Fact2();
             }
-            
+
             public int Fact2()
             {
                 return 2 * Fact1();

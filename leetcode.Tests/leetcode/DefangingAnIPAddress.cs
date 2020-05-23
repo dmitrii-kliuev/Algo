@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
-    public class DefangingAnIPAddress
+    public class DefangingAnIpAddress
     {
         /*
         Given a valid (IPv4) IP address, return a defanged version of that IP address.

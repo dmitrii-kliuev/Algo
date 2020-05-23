@@ -1,14 +1,12 @@
-using System;
 using Xunit;
 
-
-namespace leetcode.Tests
+namespace Algo.Tests.leetcode
 {
     public class RotateArrayUnitTest
     {
-        [Xunit.Theory]
+        [Theory]
         [InlineData(new[] { 1, 2, 3, 4, 5, 6, 7 }, 3, new[] { 5, 6, 7, 1, 2, 3, 4 })]
-        [InlineData(new[] { -1, -100, 3, 99 }, 2, new[] {3,99,-1,-100})]
+        [InlineData(new[] { -1, -100, 3, 99 }, 2, new[] { 3, 99, -1, -100 })]
         public void Test1(int[] input, int k, int[] output)
         {
             // arrange

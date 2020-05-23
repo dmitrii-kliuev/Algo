@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using Xunit;
 
-namespace leetcode.Tests.HackerRank
+namespace Algo.Tests.HackerRank
 {
     public class RepeatedString
     {

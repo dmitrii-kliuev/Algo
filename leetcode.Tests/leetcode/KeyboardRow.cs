@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Xunit;
-using System.Linq;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class KeyboardRow
     {
@@ -21,7 +18,7 @@ namespace leetcode.Tests.leetcode
         */
 
         [Theory]
-        [InlineData(new string[] { "Hello", "Alaska", "Dad", "Peace" }, new string[] { "Alaska", "Dad" })]
+        [InlineData(new[] { "Hello", "Alaska", "Dad", "Peace" }, new[] { "Alaska", "Dad" })]
         public void Test(string[] input, string[] expected)
         {
             var s = new Solution();
@@ -71,7 +68,7 @@ namespace leetcode.Tests.leetcode
             {
                 if (ch >= 65 && ch <= 90)
                     return (char)(ch + 32);
-                else return ch;
+                return ch;
             }
         }
     }

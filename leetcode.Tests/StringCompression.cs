@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Xunit;
 
-namespace leetcode.Tests
+namespace Algo.Tests
 {
     public class StringCompression
     {
@@ -58,7 +57,7 @@ namespace leetcode.Tests
 
     }
 
-    public class sbtest
+    public class Sbtest
     {
         [Fact]
         public void Test()
@@ -79,15 +78,15 @@ namespace leetcode.Tests
 
             {
                 Stopwatch sw = Stopwatch.StartNew();
-                StringBuilder msg_sb = new StringBuilder();
+                StringBuilder msgSb = new StringBuilder();
                 for (int j = 0; j < max; j++)
                 {
-                    msg_sb.Append("Your total is ");
-                    msg_sb.Append("$500 ");
-                    msg_sb.Append(DateTime.Now);
+                    msgSb.Append("Your total is ");
+                    msgSb.Append("$500 ");
+                    msgSb.Append(DateTime.Now);
                 }
                 sw.Stop();
-                Debug.WriteLine($"{sw.ElapsedMilliseconds}. len {msg_sb.ToString().Length}");
+                Debug.WriteLine($"{sw.ElapsedMilliseconds}. len {msgSb.ToString().Length}");
             }
         }
     }

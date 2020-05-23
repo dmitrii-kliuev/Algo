@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class LongestCommonPrefixTest
     {
         [Fact]
         public void Test()
         {
-            var arr = new string[] { "flower", "flow", "flight" };
+            var arr = new[] { "flower", "flow", "flight" };
             var expected = "fl";
 
             var s = new Solution();
@@ -18,7 +17,7 @@ namespace leetcode.Tests.leetcode
 
             Assert.Equal(expected, actual);
         }
-        
+
         public class Solution
         {
             public string LongestCommonPrefix(string[] strs)
@@ -40,7 +39,7 @@ namespace leetcode.Tests.leetcode
                 {
                     foreach (var str in strs)
                     {
-                        if(buff[i] == 0)
+                        if (buff[i] == 0)
                             buff[i] = str[i];
                         else
                         {
@@ -52,7 +51,7 @@ namespace leetcode.Tests.leetcode
                         }
                     }
 
-                    if(b) break;
+                    if (b) break;
 
                     counter++;
                 }
@@ -101,7 +100,7 @@ namespace leetcode.Tests.leetcode
 
                     if (charCount == 0)
                         return "";
-                    else if (charCount < highestPrefix)
+                    if (charCount < highestPrefix)
                         highestPrefix = charCount;
                 }
 

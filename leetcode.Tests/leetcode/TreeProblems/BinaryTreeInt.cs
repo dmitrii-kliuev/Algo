@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 
-namespace leetcode.Tests.leetcode.TreeProblems
+namespace Algo.Tests.leetcode.TreeProblems
 {
     public class TreeNode : IComparable<int>
     {
@@ -20,17 +18,17 @@ namespace leetcode.Tests.leetcode.TreeProblems
 
     public class BinaryTreeInt
     {
-        public TreeNode _root;
+        public TreeNode Root;
 
         public void Add(int value)
         {
-            if (_root == null)
+            if (Root == null)
             {
-                _root = new TreeNode(value);
+                Root = new TreeNode(value);
             }
             else
             {
-                AddTo(_root, value);
+                AddTo(Root, value);
             }
         }
 
@@ -83,7 +81,7 @@ namespace leetcode.Tests.leetcode.TreeProblems
 
         public TreeNode FindNode(int value)
         {
-            var current = _root;
+            var current = Root;
 
             while (current != null)
             {

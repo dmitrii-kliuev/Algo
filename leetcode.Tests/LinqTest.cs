@@ -1,53 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests
+namespace Algo.Tests
 {
     public class LinqTest
     {
         public class Row
         {
-            public int DIA { get; set; }
-            public int PALE { get; set; }
-            public int SPEED { get; set; }
-            public int POWER { get; set; }
-            public int COST { get; set; }
+            public int Dia { get; set; }
+            public int Pale { get; set; }
+            public int Speed { get; set; }
+            public int Power { get; set; }
+            public int Cost { get; set; }
         }
 
         [Fact]
         public void Test()
         {
-            var tbl = new List<Row>() {
-                new Row{ DIA = 8, PALE = 7, SPEED = 45, POWER = 82 , COST = 335 },
-                new Row{ DIA = 8, PALE = 7, SPEED = 68, POWER = 85 , COST = 335 },
-                new Row{ DIA = 8, PALE = 7, SPEED = 77, POWER = 96 , COST = 335 },
-                new Row{ DIA = 8, PALE = 8, SPEED = 69, POWER = 98 , COST = 345 },
-                new Row{ DIA = 9, PALE = 7, SPEED = 55, POWER = 95 , COST = 324 }
+            var tbl = new List<Row>
+            {
+                new Row{ Dia = 8, Pale = 7, Speed = 45, Power = 82 , Cost = 335 },
+                new Row{ Dia = 8, Pale = 7, Speed = 68, Power = 85 , Cost = 335 },
+                new Row{ Dia = 8, Pale = 7, Speed = 77, Power = 96 , Cost = 335 },
+                new Row{ Dia = 8, Pale = 8, Speed = 69, Power = 98 , Cost = 345 },
+                new Row{ Dia = 9, Pale = 7, Speed = 55, Power = 95 , Cost = 324 }
             };
 
             var res = from c in tbl
                       group c by new
                       {
-                          c.DIA,
-                          c.PALE,
-                          c.COST
+                          DIA = c.Dia,
+                          PALE = c.Pale,
+                          COST = c.Cost
                       } into grp
                       select new Row
                       {
-                          DIA = grp.Key.DIA,
-                          PALE = grp.Key.PALE,
-                          SPEED = grp.Min(x => x.SPEED),
-                          POWER = grp.Min(x => x.POWER),
-                          COST = grp.Key.COST
+                          Dia = grp.Key.DIA,
+                          Pale = grp.Key.PALE,
+                          Speed = grp.Min(x => x.Speed),
+                          Power = grp.Min(x => x.Power),
+                          Cost = grp.Key.COST
                       };
 
             foreach (var item in res)
             {
-                Debug.WriteLine($"{item.DIA} {item.PALE} {item.SPEED} {item.POWER} {item.COST}");
+                Debug.WriteLine($"{item.Dia} {item.Pale} {item.Speed} {item.Power} {item.Cost}");
             }
         }
     }

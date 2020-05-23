@@ -1,40 +1,46 @@
-﻿using leetcode.Tests.leetcode.TreeProblems;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
+﻿using Algo.Tests.leetcode.TreeProblems;
 using Xunit;
+
 // ReSharper disable UseObjectOrCollectionInitializer
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class MergeTwoBinaryTrees
     {
         [Fact]
         public void Test()
         {
-            var t1 = new TreeNode(1);
-            t1.left = new TreeNode(3);
-            t1.left.left = new TreeNode(5);
-            t1.right = new TreeNode(2);
+            var t1 = new TreeNode(1)
+            {
+                left = new TreeNode(3)
+                {
+                    left = new TreeNode(5)
+                },
+                right = new TreeNode(2)
+            };
 
-            var t2 = new TreeNode(2);
-            t2.left = new TreeNode(1);
-            t2.left.right = new TreeNode(4);
-            t2.right = new TreeNode(3);
-            t2.right.right = new TreeNode(7);
+            var t2 = new TreeNode(2)
+            {
+                left = new TreeNode(1)
+                {
+                    right = new TreeNode(4)
+                },
+                right = new TreeNode(3)
+                {
+                    right = new TreeNode(7)
+                }
+            };
 
             var s = new Solution();
-            var actual = s.MergeTrees(t1, t2);
+            s.MergeTrees(t1, t2);
         }
 
         public class Solution
         {
-            private TreeNode _root = null;
+            private TreeNode _root;
             public TreeNode MergeTrees(TreeNode t1, TreeNode t2)
             {
-                TreeNode rt = null;
-                Start(t1, t2, out rt);
+                Start(t1, t2, out _);
 
                 return _root;
             }

@@ -1,28 +1,27 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OneLinkedList
 {
-    class Program
+    internal class Program
     {
         /*
          односвязный список
          Добавление, удаление по индексу, удаление по значению, поиск элемента по индексу, вывод
          */
-        static void Main(string[] args)
+        private static void Main()
         {
-            var instance = new LinkedList<int>();
-            instance.Add(4);
-            instance.Add(5);
-            instance.Add(1);
-            instance.Add(8);
-            instance.Add(0);
-            instance.Add(2);
-            instance.Add(7);
+            var instance = new LinkedList<int>
+            {
+                4,
+                5,
+                1,
+                8,
+                0,
+                2,
+                7
+            };
 
             foreach (var item in instance)
             {
@@ -33,8 +32,8 @@ namespace OneLinkedList
             Console.WriteLine();
             instance.Print();
 
-            var res1 = instance.GetValue(2);
-            var res2 = instance.GetValue(6);
+            instance.GetValue(2);
+            instance.GetValue(6);
 
             instance.Remove(4);
             instance.Remove(7);
@@ -140,7 +139,7 @@ namespace OneLinkedList
                 return;
             }
 
-            if(prev != null)
+            if (prev != null)
             {
                 prev.Next = current.Next;
                 Count--;

@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Reflection.Metadata;
-using System.Runtime.InteropServices;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.CrackingTheCodingInterview
+namespace Algo.Tests.CrackingTheCodingInterview
 {
     public class ThreeStacksInOneArray
     {
@@ -54,15 +50,15 @@ namespace leetcode.Tests.CrackingTheCodingInterview
 
         private class Solution
         {
-            private readonly int[] sizes;
-            private readonly int[] values;
-            private readonly int capacity;
+            private readonly int[] _sizes;
+            private readonly int[] _values;
+            private readonly int _capacity;
 
             public Solution(int capacity, int stackQty)
             {
-                sizes = new int[stackQty];
-                values = new int[capacity * stackQty];
-                this.capacity = capacity;
+                _sizes = new int[stackQty];
+                _values = new int[capacity * stackQty];
+                _capacity = capacity;
             }
 
             public void Push(int stackNum, int val)
@@ -70,13 +66,13 @@ namespace leetcode.Tests.CrackingTheCodingInterview
                 if (IsFull(stackNum)) throw new FullStackException();
 
                 var pos = NewElementPosition(stackNum);
-                values[pos] = val;
-                sizes[stackNum]++;
+                _values[pos] = val;
+                _sizes[stackNum]++;
             }
 
             public bool IsFull(int stackNum)
             {
-                return sizes[stackNum] == capacity;
+                return _sizes[stackNum] == _capacity;
             }
 
             public int Pop(int stackNum)
@@ -84,9 +80,9 @@ namespace leetcode.Tests.CrackingTheCodingInterview
                 if (IsEmpty(stackNum)) throw new EmptyStackException();
 
                 var pos = LastElementPosition(stackNum);
-                var res = values[pos];
-                sizes[stackNum]--;
-                values[pos] = 0;
+                var res = _values[pos];
+                _sizes[stackNum]--;
+                _values[pos] = 0;
 
                 return res;
             }
@@ -96,24 +92,24 @@ namespace leetcode.Tests.CrackingTheCodingInterview
                 if (IsEmpty(stackNum)) throw new EmptyStackException();
 
                 var pos = LastElementPosition(stackNum);
-                var res = values[pos];
+                var res = _values[pos];
 
                 return res;
             }
 
             public bool IsEmpty(int stackNum)
             {
-                return sizes[stackNum] == 0;
+                return _sizes[stackNum] == 0;
             }
 
             private int LastElementPosition(int stackNum)
             {
-                return stackNum * capacity + sizes[stackNum] - 1;
+                return stackNum * _capacity + _sizes[stackNum] - 1;
             }
 
             private int NewElementPosition(int stackNum)
             {
-                return stackNum * capacity + sizes[stackNum];
+                return stackNum * _capacity + _sizes[stackNum];
             }
         }
         #endregion
@@ -149,14 +145,13 @@ namespace leetcode.Tests.CrackingTheCodingInterview
             Assert.Equal(80, s.Peek(1));
             Assert.Equal(80, s.Pop(1));
 
+            Assert.Equal(100, s.Pop(2));
             Assert.Equal(47, s.Pop(2));
             Assert.Equal(37, s.Pop(2));
             Assert.Equal(27, s.Pop(2));
             Assert.Equal(17, s.Pop(2));
 
             Assert.Throws<EmptyStackException>(() => s.Pop(2));
-
-            //Assert.True(s.IsEmpty(2));
         }
 
         private class MultiStack
@@ -201,41 +196,41 @@ namespace leetcode.Tests.CrackingTheCodingInterview
                 }
             }
 
-            private readonly StackInfo[] info;
-            public static int[] values;
+            private readonly StackInfo[] _info;
+            private static int[] _values;
 
             public MultiStack(int numberOfStacks, int defaultCapacity)
             {
-                info = new StackInfo[numberOfStacks];
+                _info = new StackInfo[numberOfStacks];
 
-                for (int i = 0; i < info.Length; i++)
-                    info[i] = new StackInfo(defaultCapacity * i, defaultCapacity);
+                for (int i = 0; i < _info.Length; i++)
+                    _info[i] = new StackInfo(defaultCapacity * i, defaultCapacity);
 
-                values = new int[numberOfStacks * defaultCapacity];
+                _values = new int[numberOfStacks * defaultCapacity];
             }
 
             public void Push(int stackNum, int value)
             {
                 if (AllStacksAreFull()) throw new FullStackException();
 
-                var stack = info[stackNum];
+                var stack = _info[stackNum];
 
                 if (stack.IsFull())
                     Expand(stackNum);
 
                 stack.size++;
 
-                values[stack.LastElementIndex()] = value;
+                _values[stack.LastElementIndex()] = value;
             }
 
             public int Pop(int stackNum)
             {
-                var stack = info[stackNum];
+                var stack = _info[stackNum];
 
                 if (stack.IsEmpty()) throw new EmptyStackException();
 
-                var value = values[stack.LastElementIndex()];
-                values[stack.LastElementIndex()] = 0;
+                var value = _values[stack.LastElementIndex()];
+                _values[stack.LastElementIndex()] = 0;
                 stack.size--;
 
                 return value;
@@ -243,45 +238,45 @@ namespace leetcode.Tests.CrackingTheCodingInterview
 
             public int Peek(int stackNum)
             {
-                var stack = info[stackNum];
+                var stack = _info[stackNum];
                 if (stack.IsEmpty()) throw new EmptyStackException();
 
-                return values[stack.LastElementIndex()];
+                return _values[stack.LastElementIndex()];
             }
 
-            private void Shift(int StackNum)
+            private void Shift(int stackNum)
             {
-                var stack = info[StackNum];
+                var stack = _info[stackNum];
 
                 if (stack.size >= stack.capacity)
                 {
-                    int nextStack = (StackNum + 1) % info.Length;
+                    int nextStack = (stackNum + 1) % _info.Length;
                     Shift(nextStack);
                     stack.capacity++;
                 }
 
                 int index = stack.LastCapacityIndex();
-                while (stack.IsWithinStackCapacity(index, values))
+                while (stack.IsWithinStackCapacity(index, _values))
                 {
-                    values[index] = values[PreviousIndex(index)];
+                    _values[index] = _values[PreviousIndex(index)];
                     index = PreviousIndex(index);
                 }
 
-                values[stack.start] = 0;
+                _values[stack.start] = 0;
                 stack.start = NextIndex(stack.start);
                 stack.capacity--;
             }
 
             private void Expand(int stackNum)
             {
-                Shift((stackNum + 1) % info.Length);
-                info[stackNum].capacity++;
+                Shift((stackNum + 1) % _info.Length);
+                _info[stackNum].capacity++;
             }
 
             private int NumberOfElements()
             {
                 int size = 0;
-                foreach (var item in info)
+                foreach (var item in _info)
                     size += item.size;
 
                 return size;
@@ -289,12 +284,12 @@ namespace leetcode.Tests.CrackingTheCodingInterview
 
             private bool AllStacksAreFull()
             {
-                return NumberOfElements() == values.Length;
+                return NumberOfElements() == _values.Length;
             }
 
-            public static int AdjustIndex(int index)
+            private static int AdjustIndex(int index)
             {
-                int max = values.Length;
+                int max = _values.Length;
                 return ((index % max) + max) % max;
             }
 
@@ -303,12 +298,10 @@ namespace leetcode.Tests.CrackingTheCodingInterview
                 return AdjustIndex(index + 1);
             }
 
-            public static int PreviousIndex(int index)
+            private static int PreviousIndex(int index)
             {
                 return AdjustIndex(index - 1);
             }
-
-
         }
         #endregion
     }

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class AvailableCapturesForRook
     {
@@ -56,16 +53,16 @@ namespace leetcode.Tests.leetcode
         [Fact]
         public void Test0()
         {
-            var board = new char[][]
-                {
-                    new char []{'.','.','.','.','.','.','.','.'},
-                    new char []{'.','.','.','p','.','.','.','.'},
-                    new char []{'.','.','.','R','.','.','.','p'},
-                    new char []{'.','.','.','.','.','.','.','.'},
-                    new char []{'.','.','.','.','.','.','.','.'},
-                    new char []{'.','.','.','p','.','.','.','.'},
-                    new char []{'.','.','.','.','.','.','.','.'},
-                    new char []{'.','.','.','.','.','.','.','.'}
+            var board = new[]
+            {
+                    new[]{'.','.','.','.','.','.','.','.'},
+                    new[]{'.','.','.','p','.','.','.','.'},
+                    new[]{'.','.','.','R','.','.','.','p'},
+                    new[]{'.','.','.','.','.','.','.','.'},
+                    new[]{'.','.','.','.','.','.','.','.'},
+                    new[]{'.','.','.','p','.','.','.','.'},
+                    new[]{'.','.','.','.','.','.','.','.'},
+                    new[]{'.','.','.','.','.','.','.','.'}
                 };
 
 
@@ -77,16 +74,16 @@ namespace leetcode.Tests.leetcode
         [Fact]
         public void Test1()
         {
-            var board = new char[][]
-                {
-                    new char []{'.','.','.','.','.','.','.','.'},
-                    new char []{'.','p','p','p','p','p','.','.'},
-                    new char []{'.','p','p','B','p','p','.','.'},
-                    new char []{'.','p','B','R','B','p','.','.'},
-                    new char []{'.','p','p','B','p','p','.','.'},
-                    new char []{'.','p','p','p','p','p','.','.'},
-                    new char []{'.','.','.','.','.','.','.','.'},
-                    new char []{'.','.','.','.','.','.','.','.'}
+            var board = new[]
+            {
+                    new[]{'.','.','.','.','.','.','.','.'},
+                    new[]{'.','p','p','p','p','p','.','.'},
+                    new[]{'.','p','p','B','p','p','.','.'},
+                    new[]{'.','p','B','R','B','p','.','.'},
+                    new[]{'.','p','p','B','p','p','.','.'},
+                    new[]{'.','p','p','p','p','p','.','.'},
+                    new[]{'.','.','.','.','.','.','.','.'},
+                    new[]{'.','.','.','.','.','.','.','.'}
                 };
 
 
@@ -98,16 +95,16 @@ namespace leetcode.Tests.leetcode
         [Fact]
         public void Test2()
         {
-            var board = new char[][]
-                {
-                    new char []{'.','.','.','.','.','.','.','.'},
-                    new char []{'.','.','.','p','.','.','.','.'},
-                    new char []{'.','.','.','p','.','.','.','.'},
-                    new char []{'p','p','.','R','.','p','B','.'},
-                    new char []{'.','.','.','.','.','.','.','.'},
-                    new char []{'.','.','.','B','.','.','.','.'},
-                    new char []{'.','.','.','p','.','.','.','.'},
-                    new char []{'.','.','.','.','.','.','.','.'}
+            var board = new[]
+            {
+                    new[]{'.','.','.','.','.','.','.','.'},
+                    new[]{'.','.','.','p','.','.','.','.'},
+                    new[]{'.','.','.','p','.','.','.','.'},
+                    new[]{'p','p','.','R','.','p','B','.'},
+                    new[]{'.','.','.','.','.','.','.','.'},
+                    new[]{'.','.','.','B','.','.','.','.'},
+                    new[]{'.','.','.','p','.','.','.','.'},
+                    new[]{'.','.','.','.','.','.','.','.'}
                 };
 
 
@@ -149,7 +146,8 @@ namespace leetcode.Tests.leetcode
                         res++;
                         break;
                     }
-                    else if (board[i][rColumn] == 'B')
+
+                    if (board[i][rColumn] == 'B')
                         break;
                 }
 
@@ -158,7 +156,8 @@ namespace leetcode.Tests.leetcode
                 {
                     if (board[i][rColumn] == 'p')
                     { res++; break; }
-                    else if (board[i][rColumn] == 'B')
+
+                    if (board[i][rColumn] == 'B')
                         break;
                 }
 
@@ -167,7 +166,8 @@ namespace leetcode.Tests.leetcode
                 {
                     if (board[rRow][j] == 'p')
                     { res++; break; }
-                    else if (board[rRow][j] == 'B')
+
+                    if (board[rRow][j] == 'B')
                         break;
                 }
 
@@ -176,7 +176,8 @@ namespace leetcode.Tests.leetcode
                 {
                     if (board[rRow][j] == 'p')
                     { res++; break; }
-                    else if (board[rRow][j] == 'B')
+
+                    if (board[rRow][j] == 'B')
                         break;
                 }
 

@@ -1,11 +1,8 @@
-﻿using leetcode.Tests.leetcode;
+﻿using Algo.Tests.leetcode;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.CrackingTheCodingInterview
+namespace Algo.Tests.CrackingTheCodingInterview
 {
     public class TwoSinglyListsIntersection
     {
@@ -49,18 +46,12 @@ namespace leetcode.Tests.CrackingTheCodingInterview
                 Assert.Equal(expectedVal, actual.node.val);
         }
 
-        protected static class Solution
+        private static class Solution
         {
             internal static bool JustIntersect(ListNode a, ListNode b)
             {
-                var aPointer = a;
-                ListNode aLast = null;
-
-                var bPointer = b;
-                ListNode bLast = null;
-
-                aLast = ListData.GetLast(a);
-                bLast = ListData.GetLast(b);
+                var aLast = ListData.GetLast(a);
+                var bLast = ListData.GetLast(b);
 
                 if (aLast != null && bLast != null && aLast == bLast)
                     return true;
@@ -75,7 +66,7 @@ namespace leetcode.Tests.CrackingTheCodingInterview
                 (int len, ListNode last) aInfo = ListNode.LengthAndLastNode(a);
                 (int len, ListNode last) bInfo = ListNode.LengthAndLastNode(b);
 
-                if (aInfo.last != bInfo.last) return (isIntersect, null);
+                if (aInfo.last != bInfo.last) return (false, null);
 
                 var diff = Math.Abs(aInfo.len - bInfo.len);
 
@@ -103,31 +94,29 @@ namespace leetcode.Tests.CrackingTheCodingInterview
                 }
 
                 if (isIntersect)
-                    return (isIntersect, a);
+                    return (true, a);
 
-                return (isIntersect, null);
+                return (false, null);
             }
         }
 
-        protected class ListData
+        private class ListData
         {
             private readonly ListNode _a;
             private readonly ListNode _b;
             public ListData(int[] aArr, int[] bArr, int[] cArr)
             {
                 _a = ListNode.ArrayToList(aArr);
-                ListNode aLast = null;
 
                 _b = ListNode.ArrayToList(bArr);
-                ListNode bLast = null;
 
                 var c = ListNode.ArrayToList(cArr);
 
-                aLast = GetLast(_a);
+                var aLast = GetLast(_a);
                 if (aLast != null)
                     aLast.next = c;
 
-                bLast = GetLast(_b);
+                var bLast = GetLast(_b);
                 if (bLast != null)
                     bLast.next = c;
             }

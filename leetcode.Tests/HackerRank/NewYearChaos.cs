@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.HackerRank
+namespace Algo.Tests.HackerRank
 {
     public class NewYearChaos
     {
@@ -41,7 +38,7 @@ namespace leetcode.Tests.HackerRank
                             return;
                         }
 
-                        if (bribes <= 2 && bribes > 0)
+                        if (bribes > 0)
                             totalBribes += bribes;
                     }
                 }

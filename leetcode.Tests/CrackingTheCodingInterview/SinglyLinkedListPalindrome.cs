@@ -1,10 +1,8 @@
-﻿using leetcode.Tests.leetcode;
-using System;
+﻿using Algo.Tests.leetcode;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.CrackingTheCodingInterview
+namespace Algo.Tests.CrackingTheCodingInterview
 {
     public class SinglyLinkedListPalindrome
     {
@@ -12,11 +10,11 @@ namespace leetcode.Tests.CrackingTheCodingInterview
 
         #region ReverseListSolution
         [Theory]
-        [InlineData(new int[] { 0, 1, 2, 1, 0 }, true)]
-        [InlineData(new int[] { 0, 1, 1, 0 }, true)]
-        [InlineData(new int[] { 0, 1, 2, 0 }, false)]
-        [InlineData(new int[] { 0, 1, 1, 2 }, false)]
-        [InlineData(new int[] { 1, 2, 3, 4, 5, 5, 4, 3, 2, 1 }, true)]
+        [InlineData(new[] { 0, 1, 2, 1, 0 }, true)]
+        [InlineData(new[] { 0, 1, 1, 0 }, true)]
+        [InlineData(new[] { 0, 1, 2, 0 }, false)]
+        [InlineData(new[] { 0, 1, 1, 2 }, false)]
+        [InlineData(new[] { 1, 2, 3, 4, 5, 5, 4, 3, 2, 1 }, true)]
         public void Test_ReverseListSolution(int[] arr, bool expected)
         {
             var lst = ListNode.ArrayToList(arr);
@@ -42,11 +40,11 @@ namespace leetcode.Tests.CrackingTheCodingInterview
 
             for (int i = 0; i < qty / 2; i++)
             {
-                if (src.val != reversed.val)
+                if (reversed != null && src.val != reversed.val)
                     return false;
 
                 src = src.next;
-                reversed = reversed.next;
+                reversed = reversed?.next;
             }
 
             return true;
@@ -65,11 +63,11 @@ namespace leetcode.Tests.CrackingTheCodingInterview
 
         #region StackSolution
         [Theory]
-        [InlineData(new int[] { 0, 1, 2, 1, 0 }, true)]
-        [InlineData(new int[] { 0, 1, 1, 0 }, true)]
-        [InlineData(new int[] { 0, 1, 2, 0 }, false)]
-        [InlineData(new int[] { 0, 1, 1, 2 }, false)]
-        [InlineData(new int[] { 1, 2, 3, 4, 5, 5, 4, 3, 2, 1 }, true)]
+        [InlineData(new[] { 0, 1, 2, 1, 0 }, true)]
+        [InlineData(new[] { 0, 1, 1, 0 }, true)]
+        [InlineData(new[] { 0, 1, 2, 0 }, false)]
+        [InlineData(new[] { 0, 1, 1, 2 }, false)]
+        [InlineData(new[] { 1, 2, 3, 4, 5, 5, 4, 3, 2, 1 }, true)]
         public void Test_StackSolution(int[] arr, bool expected)
         {
             var lst = ListNode.ArrayToList(arr);
@@ -115,12 +113,12 @@ namespace leetcode.Tests.CrackingTheCodingInterview
 
         #region recursive solution
         [Theory]
-        [InlineData(new int[] { 0, 1, 2, 1, 0 }, true)]
-        [InlineData(new int[] { 0, 1, 2, 3, 2, 1, 0 }, true)]
-        [InlineData(new int[] { 0, 1, 1, 0 }, true)]
-        [InlineData(new int[] { 0, 1, 2, 0 }, false)]
-        [InlineData(new int[] { 0, 1, 1, 2 }, false)]
-        [InlineData(new int[] { 1, 2, 3, 4, 5, 5, 4, 3, 2, 1 }, true)]
+        [InlineData(new[] { 0, 1, 2, 1, 0 }, true)]
+        [InlineData(new[] { 0, 1, 2, 3, 2, 1, 0 }, true)]
+        [InlineData(new[] { 0, 1, 1, 0 }, true)]
+        [InlineData(new[] { 0, 1, 2, 0 }, false)]
+        [InlineData(new[] { 0, 1, 1, 2 }, false)]
+        [InlineData(new[] { 1, 2, 3, 4, 5, 5, 4, 3, 2, 1 }, true)]
         public void Test_RecursiveSolution(int[] arr, bool expected) // Thank you Gayle Laakmann McDowell
         {
             var lst = ListNode.ArrayToList(arr);
@@ -134,24 +132,24 @@ namespace leetcode.Tests.CrackingTheCodingInterview
             var length = GetLength(node);
             var p = isPalindromeRecurse(node, length);
 
-            return p.result;
+            return p.Res;
         }
 
         private Result isPalindromeRecurse(ListNode head, int length)
         {
             if (head == null || length == 0) // even
                 return new Result(head, true);
-            else if (length == 1) // odd
+            if (length == 1) // odd
                 return new Result(head.next, true);
 
             var res = isPalindromeRecurse(head.next, length - 2);
 
-            if (!res.result || res.node == null) // if not is palindrome
+            if (!res.Res || res.Node == null) // if not is palindrome
                 return res;
 
-            res.result = head.val == res.node.val;
+            res.Res = head.val == res.Node.val;
 
-            res.node = res.node.next;
+            res.Node = res.Node.next;
 
             return res;
         }
@@ -170,13 +168,13 @@ namespace leetcode.Tests.CrackingTheCodingInterview
 
         private class Result
         {
-            public ListNode node { get; set; }
-            public bool result { get; set; }
+            public ListNode Node { get; set; }
+            public bool Res { get; set; }
 
-            public Result(ListNode node, bool result)
+            public Result(ListNode node, bool res)
             {
-                this.node = node;
-                this.result = result;
+                Node = node;
+                Res = res;
             }
         }
 

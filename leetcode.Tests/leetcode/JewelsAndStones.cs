@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class JewelsAndStones
     {
@@ -19,13 +16,13 @@ namespace leetcode.Tests.leetcode
 
         public class Solution
         {
-            public int NumJewelsInStones(string J, string S)
+            public int NumJewelsInStones(string j, string s)
             {
                 var qty = 0;
 
-                foreach (var oneS in S)
+                foreach (var oneS in s)
                 {
-                    foreach (var oneJ in J)
+                    foreach (var oneJ in j)
                     {
                         if (oneS == oneJ)
                             qty++;

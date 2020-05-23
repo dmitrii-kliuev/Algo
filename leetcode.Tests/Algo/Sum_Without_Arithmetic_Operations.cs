@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.Algo
+namespace Algo.Tests.Algo
 {
-    public class Sum_Without_Arithmetic_Operations
+    public class SumWithoutArithmeticOperations
     {
         [Theory]
         [InlineData(0b_1001, 0b_0011, 0b_1100)]
@@ -25,11 +22,11 @@ namespace leetcode.Tests.Algo
             Assert.Equal(expected, actual);
         }
 
-        static class Solution
+        private static class Solution
         {
             public static int Sum(int a, int b)
             {
-                while(b != 0)
+                while (b != 0)
                 {
                     int partialSum = a ^ b;
                     b = (a & b) << 1;

@@ -1,28 +1,29 @@
-﻿using leetcode.Tests.leetcode.TreeProblems;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Algo.Tests.leetcode.TreeProblems;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class SearchInaBinarySearchTree
     {
         [Fact]
         public void Test()
         {
-            var tree = new TreeNode(4);
-            tree.left = new TreeNode(2);
-            tree.left.left = new TreeNode(1);
-            tree.left.right = new TreeNode(3);
+            var tree = new TreeNode(4)
+            {
+                left = new TreeNode(2)
+                {
+                    left = new TreeNode(1),
+                    right = new TreeNode(3)
+                },
 
-            tree.right = new TreeNode(7);
+                right = new TreeNode(7)
+            };
 
             var s = new Solution();
-            var res = s.SearchBST(tree, 2);
+            s.SearchBST(tree, 2);
         }
 
-        public class Solution
+        private class Solution
         {
             public TreeNode SearchBST(TreeNode root, int val)
             {

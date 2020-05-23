@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class AddBinary
     {
@@ -36,13 +34,13 @@ namespace leetcode.Tests.leetcode
             aBit = 0;
             bBit = 0;
             carry = aBit & bBit | aBit & carry | bBit & carry;
-
+            Debug.WriteLine(carry);
             var s = new Solution();
             var actual = s.AddBinary(a, b);
             Assert.Equal(expected, actual);
         }
 
-        public class Solution
+        private class Solution
         {
             public string AddBinary(string a, string b)
             {

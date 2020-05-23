@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class MergeTwoSortedListsTest
     {
         [Theory]
-        [InlineData(new[] { 1, 2, 4 }, new[] { 1, 3, 4 }, new int[] { 1, 1, 2, 3, 4, 4 })]
-        [InlineData(new[] { 1, 2, 4 }, new[] { 1, 3, 4, 5 }, new int[] { 1, 1, 2, 3, 4, 4, 5 })]
-        [InlineData(new[] { 2 }, new[] { 1 }, new int[] { 1, 2 })]
-        [InlineData(null, new[] { 1, 3, 4 }, new int[] { 1, 3, 4 })]
-        [InlineData(new[] { 1, 2, 4 }, null, new int[] { 1, 2, 4 })]
+        [InlineData(new[] { 1, 2, 4 }, new[] { 1, 3, 4 }, new[] { 1, 1, 2, 3, 4, 4 })]
+        [InlineData(new[] { 1, 2, 4 }, new[] { 1, 3, 4, 5 }, new[] { 1, 1, 2, 3, 4, 4, 5 })]
+        [InlineData(new[] { 2 }, new[] { 1 }, new[] { 1, 2 })]
+        [InlineData(null, new[] { 1, 3, 4 }, new[] { 1, 3, 4 })]
+        [InlineData(new[] { 1, 2, 4 }, null, new[] { 1, 2, 4 })]
         public void MergeTwoSortedLists(int[] arr1, int[] arr2, int[] expectedArr)
         {
             var l1 = ListNode.ArrayToList(arr1);
@@ -93,7 +90,7 @@ namespace leetcode.Tests.leetcode
                         }
                         else if (l1 == null || l2 == null)
                         {
-                            if (l1 == null && l2 != null)
+                            if (l1 == null)
                             {
                                 curr.next = new ListNode(l2.val);
                                 curr = curr.next;
@@ -151,13 +148,13 @@ namespace leetcode.Tests.leetcode
                                 l2 = l2.next;
                             }
                         }
-                        else if (l1 == null && l2 != null)
+                        else if (l1 == null)
                         {
                             root = new ListNode(l2.val);
                             curr = root;
                             l2 = l2.next;
                         }
-                        else if (l2 == null && l1 != null)
+                        else
                         {
                             root = new ListNode(l1.val);
                             curr = root;
@@ -193,7 +190,7 @@ namespace leetcode.Tests.leetcode
                         }
                         else if (l1 == null || l2 == null)
                         {
-                            if (l1 == null && l2 != null)
+                            if (l1 == null)
                             {
                                 curr.next = new ListNode(l2.val);
                                 curr = curr.next;

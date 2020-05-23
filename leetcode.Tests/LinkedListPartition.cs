@@ -1,10 +1,8 @@
-﻿using leetcode.Tests.leetcode;
+﻿using Algo.Tests.leetcode;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests
+namespace Algo.Tests
 {
     public class LinkedListPartition
     {
@@ -59,10 +57,7 @@ namespace leetcode.Tests
                 {
                     lessThenPartitionFlag = false;
 
-                    if (!lessThenPartitionFlag)
-                        actual = actual.next;
-                    else
-                        return false;
+                    actual = actual.next;
                 }
             }
 
@@ -99,8 +94,8 @@ namespace leetcode.Tests
                     left.next = rightRoot;
                     return leftRoot;
                 }
-                else
-                    return rightRoot;
+
+                return rightRoot;
             }
         }
     }

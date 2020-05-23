@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InsertionSort
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            var arr = new[] {3, 7, 4, 4, 6, 5, 8};
+            var arr = new[] { 3, 7, 4, 4, 6, 5, 8 };
             //var arr = new[] { 0, 1, 2, 4, 5, 6, 3, 7 };
             InsertionSort(arr);
         }

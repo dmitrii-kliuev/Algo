@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TimeAngle
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             /*
 30 градусов проходит часовая стрелка за 1 час
@@ -24,20 +20,20 @@ hoursAngle = (360/12)*hours + (360/12)/ (60/minutes)
 
 282 - 323.5
              */
-            var res = GetTimeAngle(3, 15);
+            GetTimeAngle(3, 15);
 
-            var res1 = GetTimeAngle(10, 47);
+            GetTimeAngle(10, 47);
         }
 
-        private static decimal GetTimeAngle(int hours, int minutes)
+        private static void GetTimeAngle(int hours, int minutes)
         {
             // 360/60 = 6 градусов в 1й минуте или 6 градусов проходит минутная стрелка за минуту
             decimal minutesAngle = minutes * (360m / 60m);
+            Console.WriteLine(minutesAngle);
 
             // 360/12 = 30 градусов проходит часовая стрелка за 1 час
             decimal hoursAngle = (360m / 12m) * hours + (360m / 12m) / (60m / minutes);
-
-            return Math.Abs(hoursAngle - minutesAngle);
+            Console.WriteLine(hoursAngle);
         }
     }
 }

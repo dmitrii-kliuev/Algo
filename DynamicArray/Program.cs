@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DynamicArray
+﻿namespace DynamicArray
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             var d = new DynamicArray<int>(2);
             d.Add(1);
@@ -27,51 +19,51 @@ namespace DynamicArray
 
         public class DynamicArray<T>
         {
-            private T[] arr;
-            private int count;
+            private T[] _arr;
+            private int _count;
 
             public DynamicArray(int capacity)
             {
-                arr = new T[capacity];
+                _arr = new T[capacity];
             }
 
             public void Insert(T val, int index)
             {
-                if (index > count)
+                if (index > _count)
                     return;
 
                 if (IsFull())
                     Resize();
 
-                for (int i = count; i > index; i--)
-                    arr[i] = arr[i - 1];
-                
-                arr[index] = val;
-                count++;
+                for (int i = _count; i > index; i--)
+                    _arr[i] = _arr[i - 1];
+
+                _arr[index] = val;
+                _count++;
             }
 
             public void Add(T val)
             {
-                if(IsFull())
+                if (IsFull())
                     Resize();
 
-                arr[count] = val;
-                count++;
+                _arr[_count] = val;
+                _count++;
             }
 
             private bool IsFull()
             {
-                return count == arr.Length;
+                return _count == _arr.Length;
             }
 
             private void Resize()
             {
-                var newSize = arr.Length == 0 ? 4 : arr.Length * 2;
+                var newSize = _arr.Length == 0 ? 4 : _arr.Length * 2;
                 var newArr = new T[newSize];
-                for (int i = 0; i < arr.Length; i++)
-                    newArr[i] = arr[i];
+                for (int i = 0; i < _arr.Length; i++)
+                    newArr[i] = _arr[i];
 
-                arr = newArr;
+                _arr = newArr;
             }
         }
     }

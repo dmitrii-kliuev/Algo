@@ -1,10 +1,7 @@
-﻿using leetcode.Tests.leetcode;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Algo.Tests.leetcode;
 using Xunit;
 
-namespace leetcode.Tests.CrackingTheCodingInterview
+namespace Algo.Tests.CrackingTheCodingInterview
 {
     public class LinkedListLoopDetection
     {

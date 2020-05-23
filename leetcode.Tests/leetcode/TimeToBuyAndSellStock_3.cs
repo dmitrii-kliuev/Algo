@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class TimeToBuyAndSellStock3
     {
@@ -27,7 +26,7 @@ namespace leetcode.Tests.leetcode
         {
             public int MaxProfit(int[] prices)
             {
-                int sell1 = 0, sell2 = 0, buy1 = int.MinValue , buy2 = int.MinValue;
+                int sell1 = 0, sell2 = 0, buy1 = int.MinValue, buy2 = int.MinValue;
                 for (int i = 0; i < prices.Length; i++)
                 {
                     buy1 = Math.Max(buy1, -prices[i]);
@@ -82,7 +81,7 @@ namespace leetcode.Tests.leetcode
             }
         }
 
-        public class Solution_old
+        public class SolutionOld
         {
             public int MaxProfit(int[] prices)
             {

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel;
+﻿using System.Linq;
 using Xunit;
 
-namespace leetcode.Tests.leetcode
+namespace Algo.Tests.leetcode
 {
     public class AddTwoNumbersTest
     {
@@ -18,7 +14,7 @@ namespace leetcode.Tests.leetcode
         {
             var l1 = ListNode.ArrayToList(arr1);
             var l2 = ListNode.ArrayToList(arr2);
-            
+
 
             var s = new Solution();
             var actualList = s.AddTwoNumbers(l1, l2);
@@ -86,7 +82,7 @@ namespace leetcode.Tests.leetcode
                             res.next = new ListNode(tmp);
                             oneInMind = 0;
                         }
-                        
+
                         res = res.next;
                         l2 = l2.next;
                     }
@@ -106,7 +102,7 @@ namespace leetcode.Tests.leetcode
 
                         res = res.next;
                         l1 = l1.next;
-                    }   
+                    }
                 }
 
                 if (oneInMind != 0 && res != null)

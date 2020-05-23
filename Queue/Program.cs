@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Queue
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             var q = new Queue<int>();
 
@@ -49,7 +44,7 @@ namespace Queue
                 Count = 0;
             }
 
-            private void AddFirst(T value)
+            public void AddFirst(T value)
             {
                 var node = new LinkedListNode<T>(value);
                 if (_head == null)
@@ -88,14 +83,14 @@ namespace Queue
 
             private void RemoveFirst()
             {
-                if(_head.Next != null)
+                if (_head.Next != null)
                     _head.Next.Prev = null;
 
                 _head = _head?.Next;
                 Count--;
             }
 
-            private void RemoveLast()
+            public void RemoveLast()
             {
                 _tail.Prev.Next = null;
                 _tail = _tail.Prev;

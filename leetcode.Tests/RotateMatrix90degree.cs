@@ -1,11 +1,11 @@
 ﻿using System.Diagnostics;
 using Xunit;
 
-namespace leetcode.Tests
+namespace Algo.Tests
 {
     public class RotateMatrix90degree
     {
-        const int N = 4;
+        private const int N = 4;
 
         [Fact]
         public void Test()
@@ -16,21 +16,21 @@ namespace leetcode.Tests
                 bytes, write a method to rotate the image by 90 degrees. (an you do this in place?
             */
 
-            var matrix = new int[N][]
+            var matrix = new[]
             {
-                new int[N]{ 1,  2,  3,  4 },
-                new int[N]{ 5,  6,  7,  8 },
-                new int[N]{ 9,  10, 11, 12 },
-                new int[N]{ 13, 14, 15, 16 }
+                new[]{ 1,  2,  3,  4 },
+                new[]{ 5,  6,  7,  8 },
+                new[]{ 9,  10, 11, 12 },
+                new[]{ 13, 14, 15, 16 }
             };
 
-            var expected = new int[4][]
-            {
-                new int[N]{ 13, 9,  5, 1 },
-                new int[N]{ 14, 10, 6, 2 },
-                new int[N]{ 15, 11, 7, 3 },
-                new int[N]{ 16, 12, 8, 4 }
-            };
+            //var expected = new int[4][]
+            //{
+            //    new int[N]{ 13, 9,  5, 1 },
+            //    new int[N]{ 14, 10, 6, 2 },
+            //    new int[N]{ 15, 11, 7, 3 },
+            //    new int[N]{ 16, 12, 8, 4 }
+            //};
 
             Solution.Turn90deg(matrix, N);
 

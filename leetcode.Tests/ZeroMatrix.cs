@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
+﻿using System.Diagnostics;
 using Xunit;
 
-namespace leetcode.Tests
+namespace Algo.Tests
 {
     public class ZeroMatrix
     {
@@ -13,36 +10,36 @@ namespace leetcode.Tests
         [Fact]
         public void Test()
         {
-            var arr = new int[][]
+            var arr = new[]
             {
-                new int []{1, 1, 1, 0, 1, 1, 1, 1},
-                new int []{1, 1, 1, 1, 1, 1, 1, 1},
-                new int []{1, 1, 1, 1, 1, 0, 1, 1},
-                new int []{1, 1, 1, 1, 1, 1, 1, 1},
-                new int []{1, 1, 0, 1, 1, 1, 1, 1},
-                new int []{1, 1, 1, 1, 1, 1, 1, 1},
-                new int []{0, 1, 1, 1, 1, 1, 1, 1},
-                new int []{1, 1, 1, 1, 1, 1, 1, 1},
-                new int []{1, 1, 1, 1, 1, 1, 1, 1},
-                new int []{1, 1, 1, 1, 1, 1, 1, 1}
+                new[]{1, 1, 1, 0, 1, 1, 1, 1},
+                new[]{1, 1, 1, 1, 1, 1, 1, 1},
+                new[]{1, 1, 1, 1, 1, 0, 1, 1},
+                new[]{1, 1, 1, 1, 1, 1, 1, 1},
+                new[]{1, 1, 0, 1, 1, 1, 1, 1},
+                new[]{1, 1, 1, 1, 1, 1, 1, 1},
+                new[]{0, 1, 1, 1, 1, 1, 1, 1},
+                new[]{1, 1, 1, 1, 1, 1, 1, 1},
+                new[]{1, 1, 1, 1, 1, 1, 1, 1},
+                new[]{1, 1, 1, 1, 1, 1, 1, 1}
             };
 
             Solution.Print(arr, 10, 8);
 
             GetActual(arr, 10, 8);
 
-            var expected = new int[][]
+            var expected = new[]
             {
-                new int []{0, 0, 0, 0, 0, 0, 0, 0},
-                new int []{0, 1, 0, 0, 1, 0, 1, 1},
-                new int []{0, 0, 0, 0, 0, 0, 0, 0},
-                new int []{0, 1, 0, 0, 1, 0, 1, 1},
-                new int []{0, 0, 0, 0, 0, 0, 0, 0},
-                new int []{0, 1, 0, 0, 1, 0, 1, 1},
-                new int []{0, 0, 0, 0, 0, 0, 0, 0},
-                new int []{0, 1, 0, 0, 1, 0, 1, 1},
-                new int []{0, 1, 0, 0, 1, 0, 1, 1},
-                new int []{0, 1, 0, 0, 1, 0, 1, 1}
+                new[]{0, 0, 0, 0, 0, 0, 0, 0},
+                new[]{0, 1, 0, 0, 1, 0, 1, 1},
+                new[]{0, 0, 0, 0, 0, 0, 0, 0},
+                new[]{0, 1, 0, 0, 1, 0, 1, 1},
+                new[]{0, 0, 0, 0, 0, 0, 0, 0},
+                new[]{0, 1, 0, 0, 1, 0, 1, 1},
+                new[]{0, 0, 0, 0, 0, 0, 0, 0},
+                new[]{0, 1, 0, 0, 1, 0, 1, 1},
+                new[]{0, 1, 0, 0, 1, 0, 1, 1},
+                new[]{0, 1, 0, 0, 1, 0, 1, 1}
             };
 
             Debug.WriteLine("______________");

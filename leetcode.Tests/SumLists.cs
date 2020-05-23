@@ -1,10 +1,8 @@
-﻿using leetcode.Tests.leetcode;
+﻿using Algo.Tests.leetcode;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
-namespace leetcode.Tests
+namespace Algo.Tests
 {
     public class SumLists
     {
@@ -62,7 +60,8 @@ namespace leetcode.Tests
                 }
 
                 if (carryOver != 0)
-                    current.next = new ListNode(1);
+                    if (current != null)
+                        current.next = new ListNode(1);
 
                 return ListNode.LinkedListToList(resultRoot).ToArray();
             }
@@ -73,8 +72,10 @@ namespace leetcode.Tests
                 if (first != null && second != null)
                     val = first.val + second.val + carryOver;
                 else if (second == null)
-                    val = first.val + carryOver;
-                else if (first == null)
+                {
+                    if (first != null) val = first.val + carryOver;
+                }
+                else
                     val = second.val + carryOver;
 
                 if (val > 9)
@@ -86,10 +87,6 @@ namespace leetcode.Tests
                     carryOver = 0;
 
                 return val;
-
-#pragma warning disable CA1303 // Do not pass literals as localized parameters
-                throw new Exception("first & second is null");
-#pragma warning restore CA1303 // Do not pass literals as localized parameters
             }
         }
 
@@ -118,27 +115,28 @@ namespace leetcode.Tests
                 else if (len2 > len1)
                     l1 = PadList(l1, len2 - len1);
 
-                var sum = addListsHelper(l1, l2);
+                var sum = AddListsHelper(l1, l2);
 
-                if (sum.carry == 0)
-                    return ListNode.LinkedListToList(sum.sum).ToArray();
-                else
-                    return ListNode.LinkedListToList(InsertBefore(sum.sum, sum.carry)).ToArray();
+                if (sum.Carry == 0)
+                    return ListNode.LinkedListToList(sum.Sum).ToArray();
+                return ListNode.LinkedListToList(InsertBefore(sum.Sum, sum.Carry)).ToArray();
             }
 
-            private static PartialSum addListsHelper(ListNode l1, ListNode l2)
+            private static PartialSum AddListsHelper(ListNode l1, ListNode l2)
             {
                 if (l1 == null && l2 == null)
                     return new PartialSum();
 
-                var sum = addListsHelper(l1.next, l2.next);
+                if (l1 == null) throw new NullReferenceException();
 
-                var val = sum.carry + l1.val + l2.val;
+                var sum = AddListsHelper(l1.next, l2.next);
 
-                var full_result = InsertBefore(sum.sum, val % 10);
+                var val = sum.Carry + l1.val + l2.val;
 
-                sum.sum = full_result;
-                sum.carry = val / 10;
+                var fullResult = InsertBefore(sum.Sum, val % 10);
+
+                sum.Sum = fullResult;
+                sum.Carry = val / 10;
 
                 return sum;
             }
@@ -163,8 +161,8 @@ namespace leetcode.Tests
 
             private class PartialSum
             {
-                public ListNode sum { get; set; }
-                public int carry { get; set; }
+                public ListNode Sum { get; set; }
+                public int Carry { get; set; }
             }
         }
     }
