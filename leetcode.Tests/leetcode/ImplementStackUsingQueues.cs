@@ -26,6 +26,8 @@ namespace Algo.Tests.leetcode
             public ListNode(T x) { val = x; }
         }
 
+        public int Quantity { get; set; }
+
         private ListNode _root;
 
         /** Initialize your data structure here. */
@@ -39,6 +41,7 @@ namespace Algo.Tests.leetcode
         {
             var newItem = new ListNode(x) { next = _root };
             _root = newItem;
+            Quantity++;
         }
 
         /** Removes the element on top of the stack and returns that element. */
@@ -48,6 +51,9 @@ namespace Algo.Tests.leetcode
             {
                 var res = _root.val;
                 _root = _root.next;
+
+                Quantity--;
+
                 return res;
             }
 
