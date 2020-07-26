@@ -5,7 +5,7 @@ namespace Algo.Tests.CrackingTheCodingInterview
 {
     public class QueueViaStacks
     {
-        // Implement a MyQueue class which implements a queue using two stacks
+        // 3.4 Implement a MyQueue class which implements a queue using two stacks
 
         [Fact]
         public void Test()
