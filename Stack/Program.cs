@@ -20,53 +20,53 @@ namespace Stack
 
             Console.ReadKey();
         }
+    }
 
-        public class Stack<T>
+    public class Stack<T>
+    {
+        private StackItem<T> _top;
+        private int _count;
+
+        public T Pop()
         {
-            private StackItem<T> _top;
-            private int _count;
+            if (_count == 0)
+                throw new Exception("Stack is empty");
 
-            public T Pop()
-            {
-                if (_count == 0)
-                    throw new Exception("Stack is empty");
-
-                var res = _top;
-                _top = _top.Next;
-                _count--;
-                return res.Value;
-            }
-
-            public T Peek()
-            {
-                return _top.Value;
-            }
-
-            public void Push(T val)
-            {
-                var node = new StackItem<T>(val);
-
-                if (_top == null)
-                    _top = node;
-                else
-                {
-                    node.Next = _top;
-                    _top = node;
-                }
-
-                _count++;
-            }
+            var res = _top;
+            _top = _top.Next;
+            _count--;
+            return res.Value;
         }
 
-        public class StackItem<T>
+        public T Peek()
         {
-            public T Value;
-            public StackItem<T> Next;
+            return _top.Value;
+        }
 
-            public StackItem(T val)
+        public void Push(T val)
+        {
+            var node = new StackItem<T>(val);
+
+            if (_top == null)
+                _top = node;
+            else
             {
-                Value = val;
+                node.Next = _top;
+                _top = node;
             }
+
+            _count++;
+        }
+    }
+
+    public class StackItem<T>
+    {
+        public T Value;
+        public StackItem<T> Next;
+
+        public StackItem(T val)
+        {
+            Value = val;
         }
     }
 }
