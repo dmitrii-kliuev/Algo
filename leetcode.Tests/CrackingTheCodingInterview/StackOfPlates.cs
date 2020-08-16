@@ -131,7 +131,7 @@ namespace Algo.Tests.CrackingTheCodingInterview
                 if (Empty()) throw new Exception("stack is empty");
 
                 var res = _lastStack.Pop();
-                if (_lastStack.Empty())
+                if (_lastStack.IsEmpty())
                 {
                     StackList.Remove(_lastStack);
 
@@ -149,7 +149,7 @@ namespace Algo.Tests.CrackingTheCodingInterview
                 if (StackList.Count < index + 1) throw new Exception("incorrect index");
 
                 var res = StackList[index].Pop();
-                if (StackList[index].Empty())
+                if (StackList[index].IsEmpty())
                 {
                     var isLast = StackList.Count == index + 1;
 

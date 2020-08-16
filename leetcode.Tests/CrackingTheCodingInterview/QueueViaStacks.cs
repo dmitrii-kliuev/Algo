@@ -35,9 +35,9 @@ namespace Algo.Tests.CrackingTheCodingInterview
 
             private void ShiftStacks()
             {
-                if (_stackOldest.Empty())
+                if (_stackOldest.IsEmpty())
                 {
-                    while (!_stackNewest.Empty())
+                    while (!_stackNewest.IsEmpty())
                     {
                         _stackOldest.Push(_stackNewest.Pop());
                     }

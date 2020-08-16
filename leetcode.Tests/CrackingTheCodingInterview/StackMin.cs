@@ -45,7 +45,7 @@ namespace Algo.Tests.CrackingTheCodingInterview
             s.Pop(); // 10
             Assert.Equal(5, s.Min().Min);
             s.Pop();
-            Assert.True(s.Empty());
+            Assert.True(s.IsEmpty());
         }
 
     }
@@ -67,7 +67,7 @@ namespace Algo.Tests.CrackingTheCodingInterview
 
         public override void Push(T val)
         {
-            if (_stackMin.Empty())
+            if (_stackMin.IsEmpty())
             {
                 _stackMin.Push(new MinElem<T> { Min = val, Quantity = 0 });
                 base.Push(val);
@@ -103,7 +103,7 @@ namespace Algo.Tests.CrackingTheCodingInterview
 
         public MinElem<T> Min()
         {
-            if (_stackMin.Empty())
+            if (_stackMin.IsEmpty())
                 throw new Exception("Stack is empty!");
 
             return _stackMin.Top();

@@ -47,7 +47,7 @@ namespace Algo.Tests.leetcode
         /** Removes the element on top of the stack and returns that element. */
         public virtual T Pop()
         {
-            if (!Empty())
+            if (!IsEmpty())
             {
                 var res = _root.val;
                 _root = _root.next;
@@ -63,14 +63,14 @@ namespace Algo.Tests.leetcode
         /** Get the top element. */
         public T Top()
         {
-            if (!Empty())
+            if (!IsEmpty())
                 return _root.val;
 
             throw new Exception("error!");
         }
 
         /** Returns whether the stack is empty. */
-        public bool Empty()
+        public bool IsEmpty()
         {
             if (_root == null)
                 return true;
@@ -78,13 +78,4 @@ namespace Algo.Tests.leetcode
             return false;
         }
     }
-
-    /*
-     * Your MyStack object will be instantiated and called as such:
-     * MyStack obj = new MyStack();
-     * obj.Push(x);
-     * int param_2 = obj.Pop();
-     * int param_3 = obj.Top();
-     * bool param_4 = obj.Empty();
-     */
 }

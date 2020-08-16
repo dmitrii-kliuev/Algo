@@ -72,7 +72,6 @@ namespace Algo.Tests.Algo.Graphs
 
                     for (int i = 0; i < _n; i++)
                     {
-                        // ReSharper disable once CompareOfFloatsByEqualityOperator
                         if (_matrix[index, i] != 0 && !visited[i])
                         {
                             visited[i] = true;
@@ -96,7 +95,6 @@ namespace Algo.Tests.Algo.Graphs
 
                 for (int i = 0; i < _n; i++)
                 {
-                    // ReSharper disable once CompareOfFloatsByEqualityOperator
                     if (_matrix[from, i] != 0 && !visited[i])
                         Dfs(i, visited);
                 }
