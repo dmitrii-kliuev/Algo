@@ -328,6 +328,29 @@ namespace Algo.Tests.leetcode.TreeProblems
             {
                 var h = Height(root);
                 Debug.WriteLine(h);
+                for (var i = 1; i <= h; i++)
+                {
+                    Debug.Write($"level {i}: ");
+                    printCurrentLevel(root, i);
+                    Debug.WriteLine("");
+                }
+            }
+
+            private void printCurrentLevel(BinaryTreeNode<T> root, int level)
+            {
+                if (root == null)
+                {
+                    return;
+                }
+                else if (level == 1)
+                {
+                    Debug.Write(root.Value + " ");
+                }
+                else if (level > 1)
+                {
+                    printCurrentLevel(root.Left, level - 1);
+                    printCurrentLevel(root.Right, level - 1);
+                }
             }
 
             private int Height(BinaryTreeNode<T> root)
