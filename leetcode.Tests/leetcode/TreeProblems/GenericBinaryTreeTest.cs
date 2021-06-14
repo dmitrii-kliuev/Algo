@@ -9,7 +9,7 @@ namespace Algo.Tests.leetcode.TreeProblems
         [Fact]
         public void Start()
         {
-            NewMethod0();
+            Traversal();
 
             NewMethod1();
 
@@ -46,25 +46,27 @@ namespace Algo.Tests.leetcode.TreeProblems
             instance.Remove(100);
         }
 
-        private static void NewMethod0()
+        private static void Traversal()
         {
             var instance = new BinaryTree<int>();
 
-            instance.Add(8); //                        8
-            instance.Add(5); //                      /   \
+            instance.Add(8);  //                       8
+            instance.Add(5);  //                     /   \
             instance.Add(12); //                    5    12 
-            instance.Add(3); //                    / \   / \  
-            instance.Add(7); //                   3   7 10 15
-            instance.Add(10); //
-            instance.Add(15); //
+            instance.Add(3);  //                   / \   / \  
+            instance.Add(7);  //                  3   7 10 15
+            instance.Add(10); //                             \
+            instance.Add(15); //                             20
+            instance.Add(20);
 
             instance.FindWithParent(12, out _);
 
             instance.FindWithParent(2, out _);
 
+            instance.InOrderTraversal();
             instance.PreOrderTraversal();
             instance.PostOrderTraversal();
-            instance.InOrderTraversal();
+            instance.LevelOrderTraversal();
         }
 
         private static void NewMethod3()
@@ -130,13 +132,12 @@ namespace Algo.Tests.leetcode.TreeProblems
 
             public void PreOrderTraversal(BinaryTreeNode<T> node)
             {
-                Debug.WriteLine(node.Value);
-
-                if (node.Left != null)
+                if (node != null)
+                {
+                    Debug.WriteLine(node.Value);
                     PreOrderTraversal(node.Left);
-
-                if (node.Right != null)
                     PreOrderTraversal(node.Right);
+                }
             }
 
 
@@ -148,13 +149,14 @@ namespace Algo.Tests.leetcode.TreeProblems
 
             public void InOrderTraversal(BinaryTreeNode<T> node)
             {
-                if (node.Left != null)
+                if (node != null)
+                {
                     InOrderTraversal(node.Left);
 
-                Debug.WriteLine(node.Value);
+                    Debug.WriteLine(node.Value);
 
-                if (node.Right != null)
                     InOrderTraversal(node.Right);
+                }
             }
 
             public void PostOrderTraversal()
@@ -165,13 +167,13 @@ namespace Algo.Tests.leetcode.TreeProblems
 
             public void PostOrderTraversal(BinaryTreeNode<T> node)
             {
-                if (node.Left != null)
+                if (node != null)
+                {
                     PostOrderTraversal(node.Left);
-
-                if (node.Right != null)
                     PostOrderTraversal(node.Right);
 
-                Debug.WriteLine(node.Value);
+                    Debug.WriteLine(node.Value);
+                }
             }
 
             public BinaryTreeNode<T> FindWithParent(T value, out BinaryTreeNode<T> parent)
@@ -313,6 +315,40 @@ namespace Algo.Tests.leetcode.TreeProblems
                         }
                     }
 
+                }
+            }
+
+            public void LevelOrderTraversal()
+            {
+                Debug.WriteLine("LevelOrderTraversal");
+                LevelOrderTraversal(_root);
+            }
+
+            private void LevelOrderTraversal(BinaryTreeNode<T> root)
+            {
+                var h = Height(root);
+                Debug.WriteLine(h);
+            }
+
+            private int Height(BinaryTreeNode<T> root)
+            {
+                if (root == null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    var lHeight = Height(root.Left);
+                    var rHeight = Height(root.Right);
+
+                    if (lHeight > rHeight)
+                    {
+                        return lHeight + 1;
+                    }
+                    else
+                    {
+                        return rHeight + 1;
+                    }
                 }
             }
         }
