@@ -46,6 +46,10 @@ namespace Algo.Tests.CrackingTheCodingInterview.TreesAndGraphs
                 Debug.WriteLine(word);
             }
 
+            Assert.Equal(new List<string> { "the", "their", "there" }, trie.SearchSuggestions("th", 20));
+            Assert.Equal(new List<string> { "the", "their" }, trie.SearchSuggestions("th", 2));
+            Assert.Equal(new List<string> { "a", "answer", "any" }, trie.SearchSuggestions("a", 20));
+
             Debug.WriteLine("-------th-------");
             foreach (var word in trie.SearchSuggestions("th", 20))
             {
