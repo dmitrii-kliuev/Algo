@@ -1,4 +1,6 @@
-﻿using Xunit;
+﻿using System;
+using System.Collections;
+using Xunit;
 
 namespace Algo.Tests.leetcode
 {
@@ -64,6 +66,11 @@ namespace Algo.Tests.leetcode
                 {
                     res++;
                     n &= n - 1;
+                    // 0001
+                    // 0010
+                    // 0011
+                    // 0100
+                    // 0101
                 }
                 return res;
             }
@@ -105,6 +112,62 @@ namespace Algo.Tests.leetcode
                 n &= n - 1;  // Забираем младшую единичку.
             }
             return res;
+        }
+    }
+
+    public class Test
+    {
+        public void TestMethod()
+        {
+            Pigeon b = new Pigeon();
+            b.Fly();
+        }
+    }
+
+    public class Bird
+    {
+        public void BirdVoice() { }
+    }
+
+    public class FlyingBird : Bird
+    {
+        public void Fly() { }
+    }
+
+    public class Pigeon : FlyingBird { }
+
+    public class Ostrich : Bird { }
+
+    internal sealed class Alala<T> where T : new()
+    {
+        ArrayList gg = new ArrayList();
+
+        public void Asd()
+        {
+            gg.Add(new object());
+            gg.Add(new Exception());
+            Type t1 = 1.GetType();
+        }
+
+        public static T asads()
+        {
+            return new T();
+        }
+    }
+
+    public class TestRefOut
+    {
+        void method2(ref int a, out int b)
+        {
+            b = 12;
+            a = 10 + b;
+        }
+
+        void method1()
+        {
+            int a = 1;
+            int b = 5;
+            method2(ref a, out b);
         }
     }
 }

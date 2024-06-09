@@ -44,12 +44,14 @@ namespace Algo.Tests.leetcode
     {
         public int[] RunningSum(int[] nums)
         {
+            var runningSum = new int[nums.Length];
+            runningSum[0] = nums[0];
             for (int i = 1; i < nums.Length; i++)
             {
-                nums[i] = nums[i] + nums[i - 1];
+                runningSum[i] = runningSum[i - 1] + nums[i];
             }
 
-            return nums;
+            return runningSum;
         }
     }
 }

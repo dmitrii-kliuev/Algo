@@ -11,12 +11,13 @@ namespace Algo.Tests
         [InlineData("pale", "ple", true)]       // delete 1
         [InlineData("pales", "pale", true)]     // delete 1
         [InlineData("pales", "pal", false)]     // delete 2
-        [InlineData("pale", "bale", true)]      // change 1
+        [InlineData("pale", "bale", true)]     // change 1
         [InlineData("pale", "bake", false)]     // change 2
         [InlineData("pale", "pale", true)]      // equal
         [InlineData("pale", "paled", true)]     // insert 1
         [InlineData("pale", "paleds", false)]   // insert 2
         [InlineData("paleds", "pale", false)]   // delete 2
+        [InlineData("asdfg", "asdig", true)]   // 1 delete, 1 insert
         [InlineData("", "", true)]              // empty
         public void Test(string str1, string str2, bool expected)
         {
@@ -55,7 +56,7 @@ namespace Algo.Tests
                 }
 
                 if ((greaterThenZero == 0 || greaterThenZero == 1) &&
-                    (lessThenZero == 0 || lessThenZero == 1)) return true;
+                (lessThenZero == 0 || lessThenZero == 1)) return true;
 
                 return false;
             }
