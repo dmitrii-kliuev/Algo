@@ -20,11 +20,11 @@ namespace Algo.Tests.leetcode
             {
                 var qty = 0;
 
-                foreach (var oneS in s)
+                foreach (var stone in s)
                 {
-                    foreach (var oneJ in j)
+                    foreach (var jewel in j)
                     {
-                        if (oneS == oneJ)
+                        if (stone == jewel)
                             qty++;
                     }
                 }
